@@ -4,8 +4,8 @@
 ...
 
 ### 👥 Auteurs
-- Maman Nafy Ndiaye Devops
-- Mame Diarra Bousso Scrum Master
-- Aissatou Fofana
-- Ndeye Ndella Diop
-- Massina Sylvanus Bassene Dev Backend
+- Devops : Maman Nafy Ndiaye 
+- Scrum Master : Mame Diarra Bousso 
+- Product owner : Aissatou Fofana
+- Dev Frontend : Ndeye Ndella Diop 
+- Dev Backend: Massina Sylvanus Bassene 
