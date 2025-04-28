@@ -27,7 +27,7 @@ public class ServiceDetailsUtilisateur implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(
                 utilisateur.getNomUtilisateur(),
                 utilisateur.getMotDePasse(),
-                Collections.singletonList(() -> utilisateur.getRole().name())
+                Collections.singletonList(() -> "ROLE_" + utilisateur.getRole().name())
         );
     }
 }
