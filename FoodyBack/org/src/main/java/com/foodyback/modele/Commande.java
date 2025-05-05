@@ -1,6 +1,7 @@
 package com.foodyback.modele;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -19,7 +20,7 @@ public class Commande {
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
-    private Utilisateur client; // Référence à l'utilisateur (client)
+    private Utilisateur client;
 
     @Column(name = "prix_total", nullable = false)
     private Double prixTotal;
@@ -34,22 +35,26 @@ public class Commande {
 
     private String adresse;
 
+    @Column(name = "code_confirmation")
+    private String codeConfirmation; // Généré pour livraison
+
+    @Column(name = "frais_livraison")
+    private Double fraisLivraison; // Basé sur la zone
+
+    @ManyToOne
+    @JoinColumn(name = "livreur_id")
+    private Utilisateur livreur; // Livreur assigné
+
     @Column(name = "cree_le")
     private LocalDateTime creeLe = LocalDateTime.now();
 
     @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ArticleCommande> articles = new ArrayList<>();
 
-    /**
-     * Statuts possibles d'une commande.
-     */
     public enum Statut {
         EN_PREPARATION, PRET, EN_LIVRAISON, LIVRE, ANNULE
     }
 
-    /**
-     * Options de livraison possibles.
-     */
     public enum OptionLivraison {
         RECUPERATION, LIVRAISON
     }

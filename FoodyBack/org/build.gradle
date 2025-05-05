@@ -24,20 +24,24 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-activemq'
 
     // Driver MariaDB
     implementation 'org.mariadb.jdbc:mariadb-java-client:3.4.1'
 
-    // JWT - Forcer JJWT 0.12.6 pour éviter les conflits
-    implementation 'io.jsonwebtoken:jjwt:0.12.6'
+    // JWT
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
-    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6' // pour parser les claims JSON
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+    // Jackson pour Paydunya
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
 
     // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    // Dépendances pour les tests
+    // Tests
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 }
@@ -46,7 +50,11 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-// Ajout pour vérifier les conflits de dépendances
+bootJar {
+    mainClass = 'com.foodyback.FoodyBackApplication'
+    archiveFileName = 'foodyback.jar'
+}
+
 tasks.register('checkDependencies') {
     doLast {
         configurations.runtimeClasspath.each { println it }

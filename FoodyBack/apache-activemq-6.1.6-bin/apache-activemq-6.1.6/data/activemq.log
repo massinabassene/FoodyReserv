@@ -1,0 +1,26 @@
+2025-05-04 15:49:49,164 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-05-04 15:49:49,175 | INFO  | Starting Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-05-04 15:49:49,225 | INFO  | Starting KahaDBStore | org.apache.activemq.store.kahadb.KahaDBStore | main
+2025-05-04 15:49:49,226 | INFO  | Opening MessageDatabase | org.apache.activemq.store.kahadb.MessageDatabase | main
+2025-05-04 15:49:50,156 | INFO  | Starting Temp Data Store | org.apache.activemq.broker.BrokerService | main
+2025-05-04 15:49:50,157 | INFO  | PListStore:[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2025-05-04 15:49:50,158 | INFO  | Starting Job Scheduler Store | org.apache.activemq.broker.BrokerService | main
+2025-05-04 15:49:50,158 | INFO  | Persistence Adapter successfully started | org.apache.activemq.broker.BrokerService | main
+2025-05-04 15:49:50,351 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-43395-1746373790194-0:1) is starting | org.apache.activemq.broker.BrokerService | main
+2025-05-04 15:49:50,388 | INFO  | Listening for connections at: tcp://Atinkene:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-04 15:49:50,390 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | main
+2025-05-04 15:49:50,400 | INFO  | Listening for connections at: amqp://Atinkene:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-04 15:49:50,402 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | main
+2025-05-04 15:49:50,412 | INFO  | Listening for connections at: stomp://Atinkene:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-04 15:49:50,413 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | main
+2025-05-04 15:49:50,419 | INFO  | Listening for connections at: mqtt://Atinkene:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-04 15:49:50,420 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | main
+2025-05-04 15:49:50,427 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | main
+2025-05-04 15:49:50,514 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | main
+2025-05-04 15:49:50,788 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@10afe71a{/,null,STARTING} has uncovered HTTP methods for the following paths: [/] | org.eclipse.jetty.security.SecurityHandler | main
+2025-05-04 15:49:50,824 | INFO  | Listening for connections at ws://Atinkene:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | main
+2025-05-04 15:49:50,825 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | main
+2025-05-04 15:49:50,825 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-43395-1746373790194-0:1) started | org.apache.activemq.broker.BrokerService | main
+2025-05-04 15:49:50,826 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
+2025-05-04 15:49:52,556 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | main
+2025-05-04 15:49:52,556 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | main
