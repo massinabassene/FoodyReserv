@@ -24,3 +24,101 @@
 2025-05-04 15:49:50,826 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
 2025-05-04 15:49:52,556 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | main
 2025-05-04 15:49:52,556 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | main
+2025-05-12 00:41:50,466 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-05-12 00:41:50,612 | INFO  | Starting Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-05-12 00:41:50,699 | INFO  | Starting KahaDBStore | org.apache.activemq.store.kahadb.KahaDBStore | main
+2025-05-12 00:41:50,699 | INFO  | Opening MessageDatabase | org.apache.activemq.store.kahadb.MessageDatabase | main
+2025-05-12 00:41:50,996 | INFO  | Page File: /media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb/db.data. Recovering pageFile free list due to prior unclean shutdown.. | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2025-05-12 00:41:51,017 | INFO  | Page File: /media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb/db.data. Recovered pageFile free list of size: 0 | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2025-05-12 00:41:51,019 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | main
+2025-05-12 00:41:51,333 | INFO  | Starting Temp Data Store | org.apache.activemq.broker.BrokerService | main
+2025-05-12 00:41:51,334 | INFO  | PListStore:[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2025-05-12 00:41:51,337 | INFO  | Starting Job Scheduler Store | org.apache.activemq.broker.BrokerService | main
+2025-05-12 00:41:51,337 | INFO  | Persistence Adapter successfully started | org.apache.activemq.broker.BrokerService | main
+2025-05-12 00:41:51,571 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-37905-1747010511365-0:1) is starting | org.apache.activemq.broker.BrokerService | main
+2025-05-12 00:41:51,774 | INFO  | Listening for connections at: tcp://Atinkene:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-12 00:41:51,776 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | main
+2025-05-12 00:41:51,787 | INFO  | Listening for connections at: amqp://Atinkene:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-12 00:41:51,790 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | main
+2025-05-12 00:41:51,802 | INFO  | Listening for connections at: stomp://Atinkene:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-12 00:41:51,804 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | main
+2025-05-12 00:41:51,815 | INFO  | Listening for connections at: mqtt://Atinkene:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-12 00:41:51,818 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | main
+2025-05-12 00:41:51,835 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | main
+2025-05-12 00:41:51,974 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | main
+2025-05-12 00:41:52,193 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@56a4f272{/,null,STARTING} has uncovered HTTP methods for the following paths: [/] | org.eclipse.jetty.security.SecurityHandler | main
+2025-05-12 00:41:52,257 | INFO  | Listening for connections at ws://Atinkene:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | main
+2025-05-12 00:41:52,257 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | main
+2025-05-12 00:41:52,258 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-37905-1747010511365-0:1) started | org.apache.activemq.broker.BrokerService | main
+2025-05-12 00:41:52,258 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
+2025-05-12 00:41:53,808 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | main
+2025-05-12 00:41:53,810 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | main
+2025-05-26 08:13:31,144 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-05-26 08:13:31,185 | INFO  | Starting Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-05-26 08:13:31,320 | INFO  | Starting KahaDBStore | org.apache.activemq.store.kahadb.KahaDBStore | main
+2025-05-26 08:13:31,322 | INFO  | Opening MessageDatabase | org.apache.activemq.store.kahadb.MessageDatabase | main
+2025-05-26 08:13:31,623 | INFO  | Page File: /media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb/db.data. Recovering pageFile free list due to prior unclean shutdown.. | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2025-05-26 08:13:31,657 | INFO  | Page File: /media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb/db.data. Recovered pageFile free list of size: 0 | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2025-05-26 08:13:31,662 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | main
+2025-05-26 08:13:32,211 | INFO  | Starting Temp Data Store | org.apache.activemq.broker.BrokerService | main
+2025-05-26 08:13:32,214 | INFO  | PListStore:[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2025-05-26 08:13:32,215 | INFO  | Starting Job Scheduler Store | org.apache.activemq.broker.BrokerService | main
+2025-05-26 08:13:32,216 | INFO  | Persistence Adapter successfully started | org.apache.activemq.broker.BrokerService | main
+2025-05-26 08:13:32,475 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-35657-1748247212248-0:1) is starting | org.apache.activemq.broker.BrokerService | main
+2025-05-26 08:13:32,918 | INFO  | Listening for connections at: tcp://Atinkene:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-26 08:13:32,921 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | main
+2025-05-26 08:13:32,942 | INFO  | Listening for connections at: amqp://Atinkene:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-26 08:13:32,948 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | main
+2025-05-26 08:13:32,980 | INFO  | Listening for connections at: stomp://Atinkene:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-26 08:13:32,981 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | main
+2025-05-26 08:13:32,999 | INFO  | Listening for connections at: mqtt://Atinkene:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-05-26 08:13:33,002 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | main
+2025-05-26 08:13:33,022 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | main
+2025-05-26 08:13:33,225 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | main
+2025-05-26 08:13:33,624 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@3bbf841e{/,null,STARTING} has uncovered HTTP methods for the following paths: [/] | org.eclipse.jetty.security.SecurityHandler | main
+2025-05-26 08:13:33,831 | INFO  | Listening for connections at ws://Atinkene:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | main
+2025-05-26 08:13:33,831 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | main
+2025-05-26 08:13:33,832 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-35657-1748247212248-0:1) started | org.apache.activemq.broker.BrokerService | main
+2025-05-26 08:13:33,834 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
+2025-05-26 08:13:35,896 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | main
+2025-05-26 08:13:35,897 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | main
+2025-05-26 08:15:06,913 | INFO  | Connecting to URL: failover://tcp://localhost:61616 as user: null | org.apache.activemq.console.command.ProducerCommand | main
+2025-05-26 08:15:06,930 | INFO  | Producing messages to queue://TEST | org.apache.activemq.console.command.ProducerCommand | main
+2025-05-26 08:15:06,932 | INFO  | Using persistent messages | org.apache.activemq.console.command.ProducerCommand | main
+2025-05-26 08:15:06,939 | INFO  | Sleeping between sends 0 ms | org.apache.activemq.console.command.ProducerCommand | main
+2025-05-26 08:15:06,942 | INFO  | Running 1 parallel threads | org.apache.activemq.console.command.ProducerCommand | main
+2025-05-26 08:15:07,368 | INFO  | Successfully connected to tcp://localhost:61616 | org.apache.activemq.transport.failover.FailoverTransport | ActiveMQ Task-1
+2025-05-26 08:15:07,497 | INFO  | producer-1 Started to calculate elapsed time ...
+ | org.apache.activemq.util.ProducerThread | producer-1
+2025-05-26 08:15:39,327 | INFO  | producer-1 Produced: 1000 messages | org.apache.activemq.util.ProducerThread | producer-1
+2025-05-26 08:15:39,328 | INFO  | producer-1 Elapsed time in second : 31 s | org.apache.activemq.util.ProducerThread | producer-1
+2025-05-26 08:15:39,328 | INFO  | producer-1 Elapsed time in milli second : 31829 milli seconds | org.apache.activemq.util.ProducerThread | producer-1
+2025-06-01 13:50:15,314 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-06-01 13:50:15,359 | INFO  | Starting Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-06-01 13:50:15,691 | INFO  | Starting KahaDBStore | org.apache.activemq.store.kahadb.KahaDBStore | main
+2025-06-01 13:50:15,692 | INFO  | Opening MessageDatabase | org.apache.activemq.store.kahadb.MessageDatabase | main
+2025-06-01 13:50:16,093 | INFO  | Page File: /media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb/db.data. Recovering pageFile free list due to prior unclean shutdown.. | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2025-06-01 13:50:16,156 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | main
+2025-06-01 13:50:16,164 | INFO  | Page File: /media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb/db.data. Recovered pageFile free list of size: 0 | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2025-06-01 13:50:16,418 | INFO  | Starting Temp Data Store | org.apache.activemq.broker.BrokerService | main
+2025-06-01 13:50:16,419 | INFO  | PListStore:[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2025-06-01 13:50:16,419 | INFO  | Starting Job Scheduler Store | org.apache.activemq.broker.BrokerService | main
+2025-06-01 13:50:16,420 | INFO  | Persistence Adapter successfully started | org.apache.activemq.broker.BrokerService | main
+2025-06-01 13:50:16,595 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-42449-1748785816439-0:1) is starting | org.apache.activemq.broker.BrokerService | main
+2025-06-01 13:50:16,717 | INFO  | Listening for connections at: tcp://Atinkene:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-06-01 13:50:16,718 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | main
+2025-06-01 13:50:16,728 | INFO  | Listening for connections at: amqp://Atinkene:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-06-01 13:50:16,731 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | main
+2025-06-01 13:50:16,735 | INFO  | Listening for connections at: stomp://Atinkene:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-06-01 13:50:16,736 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | main
+2025-06-01 13:50:16,741 | INFO  | Listening for connections at: mqtt://Atinkene:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-06-01 13:50:16,742 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | main
+2025-06-01 13:50:16,749 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | main
+2025-06-01 13:50:16,812 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | main
+2025-06-01 13:50:17,015 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@337bbfdf{/,null,STARTING} has uncovered HTTP methods for the following paths: [/] | org.eclipse.jetty.security.SecurityHandler | main
+2025-06-01 13:50:17,045 | INFO  | Listening for connections at ws://Atinkene:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | main
+2025-06-01 13:50:17,045 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | main
+2025-06-01 13:50:17,046 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-42449-1748785816439-0:1) started | org.apache.activemq.broker.BrokerService | main
+2025-06-01 13:50:17,047 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
+2025-06-01 13:50:18,735 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | main
+2025-06-01 13:50:18,735 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | main
