@@ -9,8 +9,8 @@ public class OpenApiConfig {
     public OpenAPI FoodybackOpenAPI() {
     return new OpenAPI()
     .info(new Info()
-    .title("Car REST API")
-    .description("My car stock")
+    .title("FoodyReserv REST API")
+    .description("FoodyReserv documentation for the REST API of FoodyReserv, a food reservation system.")
     .version("1.0"));
 }
 }

@@ -71,9 +71,9 @@ public class PaydunyaService {
         body.put("custom_data", customData);
 
         Map<String, Object> actions = new HashMap<>();
-        actions.put("cancel_url", "http://localhost:8080/paiement/cancel");
-        actions.put("return_url", "http://localhost:8080/paiement/success");
-        actions.put("callback_url", "http://localhost:8080/api/paiements/callback");
+        actions.put("cancel_url", "https://fa2f-41-83-56-241.ngrok-free.app/paiement/cancel");
+        actions.put("return_url", "https://fa2f-41-83-56-241.ngrok-free.app/paiement/success");
+        actions.put("callback_url", "https://fa2f-41-83-56-241.ngrok-free.app/api/paiements/callback");
         body.put("actions", actions);
 
         Map<String, Object> customer = new HashMap<>();

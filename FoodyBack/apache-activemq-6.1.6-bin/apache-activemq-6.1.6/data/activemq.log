@@ -122,3 +122,119 @@
 2025-06-01 13:50:17,047 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
 2025-06-01 13:50:18,735 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | main
 2025-06-01 13:50:18,735 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | main
+2025-06-16 01:47:05,124 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-06-16 01:47:05,200 | INFO  | Starting Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-06-16 01:47:05,443 | INFO  | Starting KahaDBStore | org.apache.activemq.store.kahadb.KahaDBStore | main
+2025-06-16 01:47:05,448 | INFO  | Opening MessageDatabase | org.apache.activemq.store.kahadb.MessageDatabase | main
+2025-06-16 01:47:06,329 | INFO  | Page File: /media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb/db.data. Recovering pageFile free list due to prior unclean shutdown.. | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2025-06-16 01:47:06,426 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | main
+2025-06-16 01:47:06,443 | INFO  | Page File: /media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb/db.data. Recovered pageFile free list of size: 0 | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2025-06-16 01:47:08,608 | INFO  | Starting Temp Data Store | org.apache.activemq.broker.BrokerService | main
+2025-06-16 01:47:08,628 | INFO  | PListStore:[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2025-06-16 01:47:08,636 | INFO  | Starting Job Scheduler Store | org.apache.activemq.broker.BrokerService | main
+2025-06-16 01:47:08,641 | INFO  | Persistence Adapter successfully started | org.apache.activemq.broker.BrokerService | main
+2025-06-16 01:47:09,404 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-34405-1750038428902-0:1) is starting | org.apache.activemq.broker.BrokerService | main
+2025-06-16 01:47:10,898 | ERROR | Failed to start Apache ActiveMQ (localhost, ID:Atinkene-34405-1750038428902-0:1) | org.apache.activemq.broker.BrokerService | main
+java.io.IOException: Transport Connector could not be registered in JMX: java.io.IOException: Failed to bind to server socket: tcp://0.0.0.0:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 due to: java.net.BindException: Adresse déjà utilisée
+	at org.apache.activemq.util.IOExceptionSupport.create(IOExceptionSupport.java:30)
+	at org.apache.activemq.broker.BrokerService.registerConnectorMBean(BrokerService.java:2253)
+	at org.apache.activemq.broker.BrokerService.startTransportConnector(BrokerService.java:2735)
+	at org.apache.activemq.broker.BrokerService.startAllConnectors(BrokerService.java:2631)
+	at org.apache.activemq.broker.BrokerService.doStartBroker(BrokerService.java:768)
+	at org.apache.activemq.broker.BrokerService.startBroker(BrokerService.java:730)
+	at org.apache.activemq.broker.BrokerService.start(BrokerService.java:628)
+	at org.apache.activemq.xbean.XBeanBrokerService.afterPropertiesSet(XBeanBrokerService.java:73)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeCustomInitMethod(AbstractAutowireCapableBeanFactory.java:1910)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.apache.xbean.spring.context.ResourceXmlApplicationContext.<init>(ResourceXmlApplicationContext.java:64)
+	at org.apache.xbean.spring.context.ResourceXmlApplicationContext.<init>(ResourceXmlApplicationContext.java:52)
+	at org.apache.activemq.xbean.XBeanBrokerFactory$1.<init>(XBeanBrokerFactory.java:104)
+	at org.apache.activemq.xbean.XBeanBrokerFactory.createApplicationContext(XBeanBrokerFactory.java:104)
+	at org.apache.activemq.xbean.XBeanBrokerFactory.createBroker(XBeanBrokerFactory.java:67)
+	at org.apache.activemq.broker.BrokerFactory.createBroker(BrokerFactory.java:71)
+	at org.apache.activemq.broker.BrokerFactory.createBroker(BrokerFactory.java:54)
+	at org.apache.activemq.console.command.StartCommand.runTask(StartCommand.java:87)
+	at org.apache.activemq.console.command.AbstractCommand.execute(AbstractCommand.java:63)
+	at org.apache.activemq.console.command.ShellCommand.runTask(ShellCommand.java:154)
+	at org.apache.activemq.console.command.AbstractCommand.execute(AbstractCommand.java:63)
+	at org.apache.activemq.console.command.ShellCommand.main(ShellCommand.java:104)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.apache.activemq.console.Main.runTaskClass(Main.java:262)
+	at org.apache.activemq.console.Main.main(Main.java:115)
+Caused by: java.io.IOException: Failed to bind to server socket: tcp://0.0.0.0:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 due to: java.net.BindException: Adresse déjà utilisée
+	at org.apache.activemq.util.IOExceptionSupport.create(IOExceptionSupport.java:36)
+	at org.apache.activemq.transport.tcp.TcpTransportServer.bind(TcpTransportServer.java:148)
+	at org.apache.activemq.transport.tcp.TcpTransportFactory.doBind(TcpTransportFactory.java:62)
+	at org.apache.activemq.transport.TransportFactorySupport.bind(TransportFactorySupport.java:40)
+	at org.apache.activemq.broker.TransportConnector.createTransportServer(TransportConnector.java:349)
+	at org.apache.activemq.broker.TransportConnector.getServer(TransportConnector.java:148)
+	at org.apache.activemq.broker.TransportConnector.asManagedConnector(TransportConnector.java:113)
+	at org.apache.activemq.broker.BrokerService.registerConnectorMBean(BrokerService.java:2248)
+	... 40 more
+Caused by: java.net.BindException: Adresse déjà utilisée
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:555)
+	at java.base/sun.nio.ch.Net.bind(Net.java:544)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:648)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:388)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:274)
+	at java.base/javax.net.DefaultServerSocketFactory.createServerSocket(ServerSocketFactory.java:231)
+	at org.apache.activemq.transport.tcp.TcpTransportServer.bind(TcpTransportServer.java:145)
+	... 46 more
+2025-06-16 01:47:11,090 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-34405-1750038428902-0:1) is shutting down | org.apache.activemq.broker.BrokerService | main
+2025-06-16 01:47:11,097 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | main
+2025-06-16 01:47:11,100 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | main
+2025-06-16 01:47:11,110 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | main
+2025-06-16 01:47:11,111 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | main
+2025-06-16 01:47:11,114 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | main
+2025-06-16 01:47:11,135 | INFO  | PListStore:[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/localhost/tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2025-06-16 01:47:11,144 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | main
+2025-06-16 01:47:11,148 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | main
+2025-06-16 01:47:11,161 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | main
+2025-06-16 01:47:12,064 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-34405-1750038428902-0:1) uptime 7.649 seconds | org.apache.activemq.broker.BrokerService | main
+2025-06-16 01:47:12,077 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-34405-1750038428902-0:1) is shutdown | org.apache.activemq.broker.BrokerService | main
+2025-06-16 01:47:12,285 | WARN  | Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.apache.activemq.xbean.XBeanBrokerService#0' defined in class path resource [activemq.xml]: Transport Connector could not be registered in JMX: java.io.IOException: Failed to bind to server socket: tcp://0.0.0.0:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 due to: java.net.BindException: Adresse déjà utilisée | org.apache.activemq.xbean.XBeanBrokerFactory$1 | main
+2025-06-16 09:06:05,301 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-06-16 09:06:05,332 | INFO  | Starting Persistence Adapter: KahaDBPersistenceAdapter[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2025-06-16 09:06:05,453 | INFO  | Starting KahaDBStore | org.apache.activemq.store.kahadb.KahaDBStore | main
+2025-06-16 09:06:05,455 | INFO  | Opening MessageDatabase | org.apache.activemq.store.kahadb.MessageDatabase | main
+2025-06-16 09:06:05,816 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | main
+2025-06-16 09:06:06,213 | INFO  | Starting Temp Data Store | org.apache.activemq.broker.BrokerService | main
+2025-06-16 09:06:06,215 | INFO  | PListStore:[/media/massina/atinkene/2425/M1GLSI/SEMESTRE 8/IPDL/Project/FoodyReserv/FoodyReserv/FoodyBack/apache-activemq-6.1.6-bin/apache-activemq-6.1.6/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2025-06-16 09:06:06,282 | INFO  | Starting Job Scheduler Store | org.apache.activemq.broker.BrokerService | main
+2025-06-16 09:06:06,282 | INFO  | Persistence Adapter successfully started | org.apache.activemq.broker.BrokerService | main
+2025-06-16 09:06:06,538 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-45183-1750064766321-0:1) is starting | org.apache.activemq.broker.BrokerService | main
+2025-06-16 09:06:07,603 | INFO  | Listening for connections at: tcp://Atinkene:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-06-16 09:06:07,616 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | main
+2025-06-16 09:06:07,686 | INFO  | Listening for connections at: amqp://Atinkene:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-06-16 09:06:07,691 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | main
+2025-06-16 09:06:07,739 | INFO  | Listening for connections at: stomp://Atinkene:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-06-16 09:06:07,748 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | main
+2025-06-16 09:06:07,779 | INFO  | Listening for connections at: mqtt://Atinkene:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2025-06-16 09:06:07,780 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | main
+2025-06-16 09:06:07,837 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | main
+2025-06-16 09:06:08,180 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | main
+2025-06-16 09:06:08,593 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@6cff61fc{/,null,STARTING} has uncovered HTTP methods for the following paths: [/] | org.eclipse.jetty.security.SecurityHandler | main
+2025-06-16 09:06:08,674 | INFO  | Listening for connections at ws://Atinkene:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | main
+2025-06-16 09:06:08,676 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | main
+2025-06-16 09:06:08,677 | INFO  | Apache ActiveMQ 6.1.6 (localhost, ID:Atinkene-45183-1750064766321-0:1) started | org.apache.activemq.broker.BrokerService | main
+2025-06-16 09:06:08,679 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
+2025-06-16 09:06:19,793 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | main
+2025-06-16 09:06:19,808 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | main
