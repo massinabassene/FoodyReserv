@@ -1,8 +1,11 @@
 package com.foodyback.modele;
 
+import java.util.ArrayList;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
+import java.util.List;
 
 /**
  * Entité représentant un article du menu.
@@ -29,4 +32,7 @@ public class Menu {
 
     @Column(name = "est_actif")
     private Boolean estActif = true;
+
+    @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MenuImage> images = new ArrayList<>();
 }
