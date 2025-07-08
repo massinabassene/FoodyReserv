@@ -7,6 +7,8 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Entité représentant une réservation dans le restaurant.
  */
@@ -39,11 +41,13 @@ public class Reservation {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", nullable = false)
     @NotNull(message = "Le client est requis")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Utilisateur client;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "place_id", nullable = false)
     @NotNull(message = "La place est requise")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Place place;
 
     public enum Statut {

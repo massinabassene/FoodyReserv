@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * Entité représentant une commande passée par un client.
  */
@@ -48,11 +50,12 @@ public class Commande {
     @Column(name = "cree_le")
     private LocalDateTime creeLe = LocalDateTime.now();
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ArticleCommande> articles = new ArrayList<>();
 
     public enum Statut {
-        EN_PREPARATION, PRET, EN_LIVRAISON, LIVRE, ANNULE
+        EN_PREPARATION, PRET, EN_LIVRAISON, LIVREE, ANNULE
     }
 
     public enum OptionLivraison {

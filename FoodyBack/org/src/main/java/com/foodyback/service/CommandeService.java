@@ -9,6 +9,8 @@ import com.foodyback.repository.MenuRepository;
 import com.foodyback.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -97,6 +99,56 @@ public class CommandeService {
     }
 
     @Transactional
+    public Commande mettreAJourCommande(Long id, DemandeCommande demande) {
+        Commande commande = commandeRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Commande introuvable"));
+        
+        if (commande.getStatut() != Commande.Statut.EN_PREPARATION) {
+            throw new IllegalArgumentException("Seules les commandes en préparation peuvent être modifiées");
+        }
+
+        // Vider les anciens articles
+        commande.getArticles().clear();
+        
+        // Mettre à jour les détails de la commande
+        commande.setOptionLivraison(Commande.OptionLivraison.valueOf(demande.getOptionLivraison()));
+        commande.setAdresse(demande.getOptionLivraison().equals("LIVRAISON") ? demande.getAdresse() : null);
+
+        double prixTotal = 0.0;
+        for (DemandeArticleCommande articleDemande : demande.getArticles()) {
+            Menu menu = menuRepository.findById(articleDemande.getMenuId())
+                    .orElseThrow(() -> new IllegalArgumentException("Article du menu introuvable : " + articleDemande.getMenuId()));
+            if (!menu.getEstActif()) {
+                throw new IllegalArgumentException("Article du menu inactif : " + menu.getNom());
+            }
+            ArticleCommande article = new ArticleCommande();
+            article.setCommande(commande);
+            article.setMenu(menu);
+            article.setQuantite(articleDemande.getQuantite());
+            article.setPrix(menu.getPrix());
+            commande.getArticles().add(article);
+            prixTotal += menu.getPrix() * articleDemande.getQuantite();
+        }
+
+        if (demande.getOptionLivraison().equals("LIVRAISON")) {
+            if (commande.getCodeConfirmation() == null) {
+                commande.setCodeConfirmation(UUID.randomUUID().toString().substring(0, 8));
+            }
+            commande.setFraisLivraison(fraisLivraison);
+            prixTotal += fraisLivraison;
+        } else {
+            commande.setCodeConfirmation(null);
+            commande.setFraisLivraison(null);
+        }
+        commande.setPrixTotal(prixTotal);
+
+        Commande savedCommande = commandeRepository.save(commande);
+        notificationService.notifyClient(savedCommande, "Commande mise à jour avec succès");
+        
+        return savedCommande;
+    }
+
+    @Transactional
     public void annulerCommande(Long commandeId) {
         Commande commande = commandeRepository.findById(commandeId)
                 .orElseThrow(() -> new IllegalArgumentException("Commande introuvable"));
@@ -107,6 +159,19 @@ public class CommandeService {
         commandeRepository.save(commande);
         notificationService.notifyClient(commande, "Commande annulée avec succès");
         notificationService.notifyManager(commande);
+    }
+
+    public Double calculerTotalCommandesClient(Long clientId) {
+        return commandeRepository.calculerTotalCommandesParClient(clientId);
+    }
+
+    public Long compterCommandesParStatutClient(Long clientId, String statut) {
+        return commandeRepository.countByClientIdAndStatut(clientId, Commande.Statut.valueOf(statut));
+    }
+
+    public List<Commande> obtenirToutesCommandes(String sortBy, String sortDir) {
+        Sort sort = Sort.by(sortDir.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC, sortBy);
+        return commandeRepository.findAll(sort);
     }
 
     @Transactional
@@ -122,18 +187,20 @@ public class CommandeService {
     }
 
     @Transactional
-    public Commande marquerCommeLivre(Long commandeId, String codeConfirmation) {
-        Commande commande = commandeRepository.findById(commandeId)
+    public void supprimerCommande(Long id) {
+        Commande commande = commandeRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Commande introuvable"));
-        if (commande.getOptionLivraison() == Commande.OptionLivraison.LIVRAISON &&
-                codeConfirmation.equals(commande.getCodeConfirmation())) {
-            commande.setStatut(Commande.Statut.LIVRE);
-            Commande savedCommande = commandeRepository.save(commande);
-            notificationService.notifyClient(savedCommande, "Commande livrée avec succès");
-            return savedCommande;
-        } else {
-            throw new IllegalArgumentException("Code de confirmation invalide");
+        
+        if (commande.getStatut() == Commande.Statut.EN_LIVRAISON) {
+            throw new IllegalArgumentException("Impossible de supprimer une commande en cours de livraison");
         }
+        
+        commandeRepository.delete(commande);
+    }
+
+    public List<Commande> obtenirCommandesParStatut(String statut, String sortBy, String sortDir) {
+        Sort sort = Sort.by(sortDir.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC, sortBy);
+        return commandeRepository.findByStatut(Commande.Statut.valueOf(statut), sort);
     }
 
     @Transactional
@@ -152,21 +219,61 @@ public class CommandeService {
         return savedCommande;
     }
 
-    public List<Commande> obtenirCommandesParStatut(String statut, String sortBy, String sortDir) {
-        Sort sort = Sort.by(sortDir.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC, sortBy);
-        return commandeRepository.findByStatut(Commande.Statut.valueOf(statut), sort);
-    }
-
     public List<Commande> obtenirCommandesParLivreur(Long livreurId, String sortBy, String sortDir) {
+        // 👇 Ajoute cette ligne pour vérifier que le livreur existe
+        if (!utilisateurRepository.existsById(livreurId)) {
+            throw new IllegalArgumentException("Livreur introuvable");
+        }
+
         Sort sort = Sort.by(sortDir.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC, sortBy);
         return commandeRepository.findByLivreurId(livreurId, sort);
     }
 
-    public List<Commande> obtenirToutesCommandes(String sortBy, String sortDir) {
-        Sort sort = Sort.by(sortDir.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC, sortBy);
-        return commandeRepository.findAll(sort);
+    public Double calculerTotalToutesCommandes() {
+        return commandeRepository.calculerTotalToutesCommandes();
     }
 
+    public Long compterToutesCommandes() {
+        return commandeRepository.count();
+    }
+
+    public Long compterCommandesParStatut(String statut) {
+        return commandeRepository.countByStatut(Commande.Statut.valueOf(statut));
+    }
+
+    @Transactional
+    public Commande marquerCommeLivre(Long commandeId, String codeConfirmation) {
+        Commande commande = commandeRepository.findById(commandeId)
+                .orElseThrow(() -> new IllegalArgumentException("Commande introuvable"));
+        if (commande.getOptionLivraison() == Commande.OptionLivraison.LIVRAISON &&
+                codeConfirmation.equals(commande.getCodeConfirmation())) {
+            commande.setStatut(Commande.Statut.LIVREE);
+            Commande savedCommande = commandeRepository.save(commande);
+            notificationService.notifyClient(savedCommande, "Commande livrée avec succès");
+            return savedCommande;
+        } else {
+            throw new IllegalArgumentException("Code de confirmation invalide");
+        }
+    }
+
+    public List<Commande> obtenirCommandesParLivreurAuthentifie(String sortBy, String sortDir) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Utilisateur livreur = utilisateurRepository.findByNomUtilisateur(userDetails.getUsername())
+                .orElseThrow(() -> new IllegalArgumentException("Livreur introuvable"));
+        
+        Sort sort = Sort.by(sortDir.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC, sortBy);
+        return commandeRepository.findByLivreurId(livreur.getId(), sort);
+    }
+
+    public Long compterCommandesLivreurParStatutAuthentifie(String statut) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Utilisateur livreur = utilisateurRepository.findByNomUtilisateur(userDetails.getUsername())
+                .orElseThrow(() -> new IllegalArgumentException("Livreur introuvable"));
+        
+        return commandeRepository.countByLivreurIdAndStatut(livreur.getId(), Commande.Statut.valueOf(statut));
+    }
+
+    // Classes internes pour les demandes
     public static class DemandeCommande {
         private String optionLivraison;
         private String adresse;

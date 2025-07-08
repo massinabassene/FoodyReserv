@@ -1,5 +1,7 @@
 package com.foodyback.modele;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,6 +15,7 @@ public class ArticleCommande {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "commande_id", nullable = false)
     private Commande commande;

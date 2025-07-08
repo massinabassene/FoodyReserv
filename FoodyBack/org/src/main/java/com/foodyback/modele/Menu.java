@@ -7,6 +7,8 @@ import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * Entité représentant un article du menu.
  */
@@ -34,5 +36,6 @@ public class Menu {
     private Boolean estActif = true;
 
     @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, orphanRemoval = true)
+     @JsonManagedReference 
     private List<MenuImage> images = new ArrayList<>();
 }

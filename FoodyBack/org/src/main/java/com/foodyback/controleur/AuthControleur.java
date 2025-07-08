@@ -72,7 +72,7 @@ public class AuthControleur {
         Utilisateur utilisateur = utilisateurRepository.findByNomUtilisateur(demande.getNomUtilisateur())
                 .orElseThrow(() -> new IllegalArgumentException("Utilisateur introuvable"));
 
-        String jwt = jwtUtil.generateToken(userDetails.getUsername(), utilisateur.getRole().name(), utilisateur.getId());
+        String jwt = jwtUtil.generateToken(userDetails.getUsername(), utilisateur.getRole().name(), utilisateur.getId(), utilisateur.getEmail(), utilisateur.getTelephone());
         return ResponseEntity.ok(new ReponseJwt(jwt));
     }
 }

@@ -1,8 +1,16 @@
 package com.foodyback.modele;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
+@Data
+@EqualsAndHashCode(exclude = "menu") // Exclure menu du equals/hashCode
+@ToString(exclude = "menu") // Exclure menu du toString
 public class MenuImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,6 +20,7 @@ public class MenuImage {
 
     @ManyToOne
     @JoinColumn(name = "menu_id")
+    @JsonBackReference
     private Menu menu;
 
     // getters et setters

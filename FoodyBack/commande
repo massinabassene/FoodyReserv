@@ -1,0 +1,1029 @@
+ 1068                <input
+ 1069                  type="date"
+ 1070                  className="form-input rounded-md border-gray-300 shadow-sm"
+ 1071                  value={selectedDate}
+ 1072                  onChange={handleDateChange}
+ 1073                />
+ 1074              </label>
+ 1075            </div>
+ 1076          </div>
+ 1077          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+ 1078            <Card>
+ 1079              <h3 className="text-lg font-medium mb-4">Liste des interventions</h3>
+ 1080              {isLoading ? (
+ 1081                <div className="text-center py-4">
+ 1082                  <p className="text-gray-500">Chargement...</p>
+ 1083                </div>
+ 1084              ) : (
+ 1085                <InterventionsList
+ 1086                  interventions={interventions}
+ 1087                  onViewDetails={handleViewDetails}
+ 1088                />
+ 1089              )}
+ 1090            </Card>
+ 1091            {selectedIntervention && (
+ 1092              <Card>
+ 1093                <MonitoringPanel
+ 1094                  patientId={selectedIntervention.patientId}
+ 1095                  onClose={() => setSelectedIntervention(null)}
+ 1096                />
+ 1097              </Card>
+ 1098            )}
+ 1099          </div>
+ 1100        </div>
+ 1101      </AnesthesisteLayout>
+ 1102    );
+ 1103  };
+ 1104  export default Interventions;
+ 1105  EOL
+ 1106  code .
+ 1107  cd B
+ 1108  ls
+ 1109  cd FoodyBack/
+ 1110  ls
+ 1111  cd apache-activemq-6.1.6-bin/
+ 1112  ls
+ 1113  cd apache-activemq-6.1.6/
+ 1114  ls
+ 1115  cd bin/
+ 1116  ls
+ 1117  ./activemq
+ 1118  sudo ./activemq
+ 1119  ls
+ 1120  sudo ./activemq
+ 1121  ./activemq
+ 1122  llama
+ 1123  ollama
+ 1124  ollama run
+ 1125  ./activemq
+ 1126  ./activemq start
+ 1127  clear
+ 1128  ./activemq producer
+ 1129  ./activemq
+ 1130  ./activemq stop
+ 1131  clear
+ 1132  cd ../..
+ 1133  cd ../
+ 1134  ls
+ 1135  mkdir Lab14
+ 1136  clear
+ 1137  git clone https://github.com/elbachir67/cicd_uam1.git
+ 1138  git remote remove origin
+ 1139  ls
+ 1140  mv cicd_uam1/ Lab14/
+ 1141  ls
+ 1142  cd Lab14
+ 1143  ls
+ 1144  clear
+ 1145  cd cicd_uam1/
+ 1146  clear
+ 1147  ls
+ 1148  git remote add origin https://gitlab.com/massinasylvanusbassene/cicd_uam1.git
+ 1149  git remote -v
+ 1150  git remote remove origin
+ 1151  git remote add origin https://gitlab.com/massinasylvanusbassene/cicd_uam1.git
+ 1152  git branch -M main
+ 1153  git push --set-upstream origin --all
+ 1154  clear
+ 1155  ls
+ 1156  cat requirements.txt 
+ 1157  clear
+ 1158  ls
+ 1159  cat requirements.txt 
+ 1160  pip install -r requirements.txt 
+ 1161  pip install -r requirements.txt
+ 1162  gedit requirements.txt 
+ 1163  python3 app.py
+ 1164  clear
+ 1165  ls
+ 1166  python3 app.py
+ 1167  clear
+ 1168  code .
+ 1169  cd ppp/
+ 1170  ls
+ 1171  php artisan serve
+ 1172  ls
+ 1173  cd ..
+ 1174  cd frontend/
+ 1175  clear
+ 1176  npm run dev
+ 1177  npm install
+ 1178  clear
+ 1179  npm run dev
+ 1180  clear
+ 1181  sudo chmod 777 .
+ 1182  ls -al
+ 1183  cd ..
+ 1184  sudo chmod 777 frontend/
+ 1185  ls
+ 1186  ls -al
+ 1187  ls
+ 1188  # npm 7+, extra double-dash is needed:
+ 1189  npm create vite@latest front -- --template react
+ 1190  ls
+ 1191  cd front
+ 1192  ls
+ 1193  cd ..
+ 1194  cd front
+ 1195  clear
+ 1196  npm install
+ 1197  npm run dev
+ 1198  reboot
+ 1199  php artisan tinker
+ 1200  sudo mkdir -p /mnt/sda1
+ 1201  sudo mount /dev/sda1 /mnt/sda1
+ 1202  sudo ntfsfix /dev/sda1
+ 1203  npm run dev
+ 1204  npm install
+ 1205  npm run dev
+ 1206  clear
+ 1207  npm run dev
+ 1208  sudo add-apt-repository ppa:kirillshkrogalev/ffmpeg-next
+ 1209  sudo apt-get update && sudo apt-get install ffmpeg
+ 1210  sudo apt-get install ffmpeg
+ 1211  sudo add-apt-repository ppa:obsproject/obs-studio
+ 1212  sudo apt update
+ 1213  sudo apt-get update && sudo apt-get install obs-studio
+ 1214  sudo apt upgrade
+ 1215  sudo apt-get update && sudo apt-get install obs-studio
+ 1216  obs
+ 1217  sudo apt-get install obs-studio
+ 1218  clear
+ 1219  npm run dev
+ 1220  cd ..
+ 1221  cfd frontend/
+ 1222  cd frontend/
+ 1223  code .
+ 1224  ls
+ 1225  ls -al
+ 1226  git push --set-upstream origin –all
+ 1227  git remote -v
+ 1228  git add .gitlab-ci.yml
+ 1229  git push --set-upstream origin –all
+ 1230  git checkout -b app-logic
+ 1231  git push -u origin app-logic
+ 1232  git push --set-upstream origin –all
+ 1233  git checkout -b app-logic
+ 1234  git push --set-upstream origin –all
+ 1235  ls
+ 1236  cd FoodyBack/
+ 1237  clear
+ 1238  ls
+ 1239  cd org
+ 1240  cd ..
+ 1241  ls
+ 1242  cd apache-activemq-6.1.6-bin/
+ 1243  ls
+ 1244  cd apache-activemq-6.1.6/
+ 1245  ls
+ 1246  cd bin/
+ 1247  clear
+ 1248  ls
+ 1249  ./activemq start
+ 1250  ./activemq
+ 1251  ./activemq start
+ 1252  ls
+ 1253  cd bin
+ 1254  clear
+ 1255  ./activemq start
+ 1256  cd ..
+ 1257  git clone https://NdellaDiop/FoodyReserv
+ 1258  cd ..
+ 1259  git clone https://github.com/NdellaDiop/FoodyReserv
+ 1260  npm install
+ 1261  ls
+ 1262  cd FoodyReserv/
+ 1263  npm install
+ 1264  ls
+ 1265  cd foodyfront/
+ 1266  npm install
+ 1267  npm start
+ 1268  sudo apt install gcc
+ 1269  sudo apt upgrade gcc
+ 1270  sudo apt update --fix-missing
+ 1271  gcc -v
+ 1272  sudo apt upgrade gcc-14
+ 1273  sudo apt install build-essential
+ 1274  sudo apt install libmpfr-dev libgmp3-dev libmpc-dev -y
+ 1275  wget http://ftp.gnu.org/gnu/gcc/gcc-14.1.0/gcc-14.1.0.tar.gz
+ 1276  tar -xf gcc-14.1.0.tar.gz
+ 1277  cd gcc-14.1.0
+ 1278  ./configure -v --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --prefix=/usr/local/gcc-14.1.0 --enable-checking=release --enable-languages=c,c++ --disable-multilib --program-suffix=-14.1.0
+ 1279  make
+ 1280  sudo make install
+ 1281  ls
+ 1282  bach install-sh 
+ 1283  batch install-sh 
+ 1284  batch ./install-sh 
+ 1285  ./install-sh 
+ 1286  install-sh 
+ 1287  ls
+ 1288  ls -al
+ 1289  sudo ./install-sh
+ 1290  batch install-sh 
+ 1291  batch install-sh
+ 1292  sudo make install
+ 1293  ./configure -v --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --prefix=/usr/local/gcc-14.1.0 --enable-checking=release --enable-languages=c,c++ --disable-multilib --program-suffix=-14.1.0
+ 1294  sudo make install
+ 1295  cd ..
+ 1296  rm -r gcc-14.1.0
+ 1297  sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+ 1298  sudo apt update
+ 1299  sudo apt install gcc-13 g++-13
+ 1300  sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 100
+ 1301  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-13 100
+ 1302  gcc -v
+ 1303  sudo apt install gcc-12.3.0 g++-12.3.0
+ 1304  sudo apt install gcc-12.3.0 g++-12
+ 1305  sudo apt install gcc-12 g++-12
+ 1306  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 100
+ 1307  gcc -v
+ 1308  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 100
+ 1309  gcc -v
+ 1310  ls /var/spool/cron/
+ 1311  gcc -v
+ 1312  clear
+ 1313  code .
+ 1314  python -m json.tool Corrected_NLP_Pipeline_with_Domain_Shift.ipynb > validated.ipynb
+ 1315  python3 -m json.tool Corrected_NLP_Pipeline_with_Domain_Shift.ipynb > validated.ipynb
+ 1316  uname -a
+ 1317  wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.2.tar.xz
+ 1318  unxz linux-6.15.2.tar.xz 
+ 1319  ls linux-6.15.2.tar
+ 1320  untar linux-6.15.2.tar
+ 1321  tar -xv linux-6.15.2.tar
+ 1322  tarxv linux-6.15.2.tar
+ 1323  tar
+ 1324  tar --help
+ 1325  diff
+ 1326  diff --help
+ 1327  ls linux-6.15.2*
+ 1328  tar linux-6.15.2.tar
+ 1329  tar -xv linux-6.15.2.tar
+ 1330  tar -xv -f linux-6.15.2.tar
+ 1331  ls linux-6.15.2
+ 1332  cd linux-6.15.2
+ 1333  clear
+ 1334  ls
+ 1335  cd ..
+ 1336  cd linux-6.15.2
+ 1337  patch . -f < ../patch-6.15.2 
+ 1338  ls
+ 1339  mman patch
+ 1340  man patch
+ 1341  patch  -f . < ../patch-6.15.2 
+ 1342  patch  -f .  ../patch-6.15.2 
+ 1343  man patch
+ 1344  ls
+ 1345  patch  -f  ../patch-6.15.2 
+ 1346  patch -f ../patch-6.15.2 
+ 1347  patch -f > ../patch-6.15.2 
+ 1348  patch -f < ../patch-6.15.2 
+ 1349  make moduleconfig
+ 1350  cd ~
+ 1351  clear
+ 1352  ls /proc/filesystems
+ 1353  cat /proc/filesystems
+ 1354  man mount
+ 1355  cat /etc/fstap
+ 1356  cat /etc/fstab
+ 1357  ls
+ 1358  cd sites-available/
+ 1359  ls
+ 1360  sudo nano 000-default.conf 
+ 1361  ls
+ 1362  cd ..
+ 1363  ls
+ 1364  sudo nano apache2.conf 
+ 1365  sudo nano apache2.conf
+ 1366  cd ..
+ 1367  cd frontend/
+ 1368  ls
+ 1369  cd src/
+ 1370  ls
+ 1371  cat App.jsx 
+ 1372  history
+ 1373  sudo ntfsfix /dev/sda1
+ 1374  npm install
+ 1375  npm init -y
+ 1376  npm install react react-dom react-scripts react-flow-renderer tailwindcss postcss autoprefixer
+ 1377  npx tailwindcss init -p
+ 1378  code .
+ 1379  cd ..
+ 1380  ls
+ 1381  cd ..
+ 1382  ls
+ 1383  cd ..
+ 1384  ls
+ 1385  npm run start
+ 1386  mkdir projet
+ 1387  cd projet/
+ 1388  mkdir client
+ 1389  mkdir server
+ 1390  cd client
+ 1391  mkdir -p public/ src/components tests
+ 1392  ls
+ 1393  code .
+ 1394  cd ..
+ 1395  code .
+ 1396  cd client/
+ 1397  npm install
+ 1398  npm start
+ 1399  npm audit fix --force
+ 1400  npm start
+ 1401  npm run dev
+ 1402  npm start
+ 1403  npm install
+ 1404  npm start
+ 1405  npm startnpm install react-scripts
+ 1406  npm install react-scripts
+ 1407  npm start
+ 1408  rm -rf node_modules package-lock.json
+ 1409  npm install
+ 1410  npm start
+ 1411  cd ..
+ 1412  cd server/
+ 1413  npm start
+ 1414  code .
+ 1415  npm start
+ 1416  cd ppp/
+ 1417  php artisan serve
+ 1418  code .
+ 1419  code .
+ 1420  cd ../server/
+ 1421  npm install
+ 1422  npm start
+ 1423  cd ..
+ 1424  cd Rx/
+ 1425  ls
+ 1426  cd projet/client/
+ 1427  npm start
+ 1428  code .
+ 1429  npm start
+ 1430  cd front
+ 1431  clear
+ 1432  npm run dev
+ 1433  npm install
+ 1434  npm run dev
+ 1435  cd ../..
+ 1436  cd ..
+ 1437  ls
+ 1438  cd XML/
+ 1439  clear
+ 1440  ls
+ 1441  code .
+ 1442  git remote -v
+ 1443  git init
+ 1444  cd ..
+ 1445  git init
+ 1446  git add .
+ 1447  git rm --cached client
+ 1448  git rm --cached client -f
+ 1449  git add .
+ 1450  git remote -v
+ 1451  git remote add origin https://github.com/Atinkene/RTS.git
+ 1452  git remote -v
+ 1453  git init
+ 1454  git add .
+ 1455  git commit -m "Initial commit"
+ 1456  git push origin main
+ 1457  git push origin main --force
+ 1458  git remote -v
+ 1459  git push origin main
+ 1460  git init
+ 1461  git remote -v
+ 1462  git add .
+ 1463  git commit -m "initiation"
+ 1464  git fetch origin
+ 1465  git checkout main
+ 1466  git merge origin/master
+ 1467  git checkout main
+ 1468  git merge master --allow-unrelated-histories
+ 1469  git fetch origin
+ 1470  git checkout main
+ 1471  git merge origin/master --allow-unrelated-histories
+ 1472  git push origi main
+ 1473  git fetch origin
+ 1474  git checkout main
+ 1475  git merge origin/master --allow-unrelated-histories
+ 1476  git remote -v
+ 1477  git remote add origin https://github.com/Atinkene/RTS.git
+ 1478  git init
+ 1479  git add .
+ 1480  ls
+ 1481  git init
+ 1482  git add README.md
+ 1483  git commit -m "first commit"
+ 1484  git branch -M main
+ 1485  git remote add origin https://github.com/Atinkene/RTS-simulator.git
+ 1486  git push -u origin main
+ 1487  git init
+ 1488  git add .
+ 1489  git commit -m "first commit"
+ 1490  git branch -M main
+ 1491  git remote add origin https://github.com/Atinkene/RTS-simulator.git
+ 1492  git push -u origin main
+ 1493  git init
+ 1494  git add .
+ 1495  cd client/
+ 1496  npm start
+ 1497  cd server/
+ 1498  npm start
+ 1499  cd ..
+ 1500  cd ppp/ ; code .
+ 1501  clear
+ 1502  php artisan serve
+ 1503  ./gradlew clean build
+ 1504  ls
+ 1505  cd org/
+ 1506  ls
+ 1507  ./gradlew clean build
+ 1508  ls
+ 1509  git remote -v
+ 1510  git add FoodyBack/
+ 1511  git commit -m "Documentation de l api"
+ 1512  git push origin main
+ 1513  ls
+ 1514  cd src/
+ 1515  ls
+ 1516  cd main/
+ 1517  ls
+ 1518  cd java/com/foodyback/
+ 1519  ls
+ 1520  ls config/
+ 1521  git pull origin main
+ 1522  git remote -v
+ 1523  git remote set-url origin https://github.com/Atinkene/FoodyReserv.git
+ 1524  git remote -v
+ 1525  git pull origin main
+ 1526  ls
+ 1527  git reset --hard HEAD
+ 1528  ls
+ 1529  npm install react-icons
+ 1530  cd ..
+ 1531  git remote -v
+ 1532  git remote add origin https://github.com/Atinkene/RTS.git
+ 1533  git init
+ 1534  code .
+ 1535  ls
+ 1536  cd client/
+ 1537  npm run build
+ 1538  cd ..
+ 1539  cd server/
+ 1540  npm run build
+ 1541  cd ..
+ 1542  code .
+ 1543  cd client/
+ 1544  ls
+ 1545  cd ..
+ 1546  code .
+ 1547  cp client/ server/ ../RTS/
+ 1548  cp -r client/ server/ ../RTS/
+ 1549  cd ..
+ 1550  cd RTS/
+ 1551  clear
+ 1552  ls
+ 1553  git init
+ 1554  git add README.md
+ 1555  git commit -m "first commit"
+ 1556  git branch -M main
+ 1557  git remote add origin https://github.com/Atinkene/RTS-simulator.git
+ 1558  git push -u origin main
+ 1559  code .
+ 1560  cd ..
+ 1561  ls
+ 1562  cd PPP/Project/
+ 1563  ls
+ 1564  cd front
+ 1565  clear
+ 1566  code .
+ 1567  clear
+ 1568  npm run dev
+ 1569  cd ../../../IPDL/
+ 1570  clear
+ 1571  ls
+ 1572  cd FoodyReserv/
+ 1573  ls
+ 1574  clear
+ 1575  cd foodyfront/
+ 1576  clear
+ 1577  npm start
+ 1578  ls
+ 1579  cd FoodyBack/
+ 1580  clear
+ 1581  code .
+ 1582  ls
+ 1583  cd apache-activemq-6.1.6/
+ 1584  ls
+ 1585  cd bin/
+ 1586  ls
+ 1587  ./activemq start
+ 1588  cd ..
+ 1589  ls
+ 1590  cd org/
+ 1591  clear
+ 1592  code .
+ 1593  ls
+ 1594  cd src/
+ 1595  ls
+ 1596  cd main/
+ 1597  ls
+ 1598  cd java/com/foodyback/
+ 1599  ls
+ 1600  ls config/
+ 1601  cd ppp/
+ 1602  clear
+ 1603  php artisan serve
+ 1604  cd app/
+ 1605  ls
+ 1606  cd Http/
+ 1607  ls
+ 1608  cd Controllers/
+ 1609  ls
+ 1610  tree
+ 1611  cd ..
+ 1612  ls
+ 1613  cd ..
+ 1614  cd Models/
+ 1615  ls
+ 1616  tree
+ 1617  php artisan list:route
+ 1618  php artisan make:route
+ 1619  php artisan route:list
+ 1620  cd ..
+ 1621  php artisan route:list
+ 1622  php artisan serve
+ 1623  ls
+ 1624  cd apache-activemq-6.1.6-bin/
+ 1625  ls
+ 1626  cd apache-activemq-6.1.6/
+ 1627  ls
+ 1628  cd bin/
+ 1629  ls
+ 1630  ./activemq start
+ 1631  cd ..
+ 1632  ls
+ 1633  cd ..
+ 1634  ls
+ 1635  cd FoodyReserv/foodyfront/
+ 1636  ls
+ 1637  npm start
+ 1638  cdd ../..
+ 1639  cd ../..
+ 1640  cd ..
+ 1641  ls
+ 1642  cd PPP/Project/
+ 1643  ls
+ 1644  code front/ ppp/
+ 1645  ls
+ 1646  clear
+ 1647  cd front
+ 1648  clear
+ 1649  npm start
+ 1650  npm install
+ 1651  clear
+ 1652  npm start
+ 1653  npm run dev
+ 1654  tree
+ 1655  man tree
+ 1656  ls
+ 1657  cd src
+ 1658  tree
+ 1659  cd ..
+ 1660  npm run dev
+ 1661  curl http://localhost:8042/patients
+ 1662  curl http://localhost:8042/instances
+ 1663  curl http://localhost:8042/studies
+ 1664  curl http://localhost:8042/patients
+ 1665  ls
+ 1666  clear
+ 1667  git init
+ 1668  git add README.md
+ 1669  git commit -m "first commit"
+ 1670  git branch -M main
+ 1671  git remote add origin https://github.com/Atinkene/pppFront.git
+ 1672  git push -u origin main
+ 1673  git init
+ 1674  git add .
+ 1675  git commit -m "init project"
+ 1676  git branch -M main
+ 1677  git remote add origin https://github.com/Atinkene/pppFront.git
+ 1678  git push -u origin main
+ 1679  npm run build
+ 1680  npm start
+ 1681  npm run dev
+ 1682  chage -M 60
+ 1683  wget https://drive.google.com/file/d/12mfkmFGQQYzzFjsuQq4L4vx7egEpMg_y/view
+ 1684  ls
+ 1685  arch
+ 1686  cd server/
+ 1687  clear
+ 1688  npm run dev
+ 1689  npm install
+ 1690  npm run dev
+ 1691  clear
+ 1692  ls
+ 1693  npm start
+ 1694  cd client/
+ 1695  clear
+ 1696  npm run dev
+ 1697  clear
+ 1698  npm start
+ 1699  clear
+ 1700  npm start
+ 1701  code .
+ 1702  cd .. 
+ 1703  clear
+ 1704  cd server/
+ 1705  clear
+ 1706  code .
+ 1707  clear
+ 1708  cd ../client/
+ 1709  code .
+ 1710  sudo apt update 
+ 1711  mkdir -p frontend backend && cd frontend && npx create-react-app . && cd ../backend && npm init -y
+ 1712  cd frontend && npm install react-flow-renderer @reactflow/node-resizer @reactflow/background chart.js react-chartjs-2 jspdf @mui/material @mui/icons-material @emotion/react @emotion/styled
+ 1713  cd backend && npm install express cors body-parser nodemon
+ 1714  rm -rf * && mkdir -p frontend backend && touch frontend/package.json backend/package.json
+ 1715  cd frontend && npx create-react-app .
+ 1716  rm -rf * && npx create-react-app frontend && mkdir backend && cd backend && npm init -y
+ 1717  code .
+ 1718  ls
+ 1719  code .
+ 1720  clear
+ 1721  cd server/
+ 1722  npm start
+ 1723  clear
+ 1724  npm start
+ 1725  clear
+ 1726  npm start
+ 1727  clear
+ 1728  npm start
+ 1729  cd client/
+ 1730  npm start
+ 1731  clear
+ 1732  npm start
+ 1733  clear
+ 1734  npm start
+ 1735  sudo apt update firefox
+ 1736  sudo apt upgrade firefox
+ 1737  npm install lucide-react
+ 1738  npm install chartjs-plugin-zoom
+ 1739  npm install heroicons
+ 1740  npm install @heroicons/react
+ 1741  cd client
+ 1742  clear
+ 1743  code .
+ 1744  npm run dev
+ 1745  npm start
+ 1746  clear
+ 1747  npm start
+ 1748  code .
+ 1749  cd server/
+ 1750  clear
+ 1751  code .
+ 1752  npm start
+ 1753  cd client/
+ 1754  clear
+ 1755  npm start
+ 1756  cd ..
+ 1757  cd RTS
+ 1758  clear
+ 1759  cd client/
+ 1760  npm start
+ 1761  cd ..
+ 1762  ls
+ 1763  cd RTS_Project/
+ 1764  cd client/
+ 1765  clear
+ 1766  npm start
+ 1767  clear
+ 1768  npm start
+ 1769  npm install react-three/fiber
+ 1770  npm install three @react-three/fiber @react-three/drei
+ 1771  npm install three @react-three/fiber@8.16.8 @react-three/drei@9.105.6
+ 1772  npm uninstall three @react-three/fiber@8.16.8 @react-three/drei@9.105.6
+ 1773  cd server/
+ 1774  npm start
+ 1775  clear
+ 1776  npm start
+ 1777  clear
+ 1778  npm start
+ 1779  clear
+ 1780  npm start
+ 1781  clear
+ 1782  npm start
+ 1783  clear
+ 1784  npm start
+ 1785  clear
+ 1786  npm start
+ 1787  clear
+ 1788  npm start
+ 1789  clear
+ 1790  npm start
+ 1791  clear
+ 1792  npm start
+ 1793  clear
+ 1794  cd ..
+ 1795  cd server/
+ 1796  clear
+ 1797  npm start
+ 1798  clear
+ 1799  npm start
+ 1800  clear
+ 1801  npm start
+ 1802  clear
+ 1803  npm start
+ 1804  clear
+ 1805  npm start
+ 1806  clear
+ 1807  npm start
+ 1808  clear
+ 1809  npm start
+ 1810  clear
+ 1811  npm start
+ 1812  clear
+ 1813  npm start
+ 1814  sudo apt install firefox
+ 1815  sudo apt update
+ 1816  sudo apt upgrade
+ 1817  ls
+ 1818  cd client
+ 1819  ls
+ 1820  cd ..
+ 1821  cd server/
+ 1822  echo "# RTS_Backend" >> README.md
+ 1823  git init
+ 1824  git add README.md
+ 1825  git commit -m "first commit"
+ 1826  git branch -M main
+ 1827  git remote add origin https://github.com/Atinkene/RTS_Backend.git
+ 1828  git push -u origin main
+ 1829  git push origin main
+ 1830  git config --global init.defaultBranch main
+ 1831  git push origin main
+ 1832  git remote -v
+ 1833  git check
+ 1834  git check --help
+ 1835  git --help
+ 1836  git add .
+ 1837  git push origin main
+ 1838  git commit -m "Initiation"
+ 1839  git diff
+ 1840  git pull origin main
+ 1841  git diff
+ 1842  git add .
+ 1843  git commit -m "Initiation"
+ 1844  git pull --help
+ 1845  cd client/
+ 1846  git add .
+ 1847  gir commit -m ""ajout de l aide""
+ 1848  git commit -m ""ajout de l aide""
+ 1849  git commit -m "ajout de l aide"
+ 1850  git push origin main
+ 1851  cd server/
+ 1852  ls
+ 1853  echo "# RTS_Back" >> README.md
+ 1854  git init
+ 1855  git add .
+ 1856  git commit -m "first commit"
+ 1857  git branch -M main
+ 1858  git remote add origin https://github.com/Atinkene/RTS_Back.git
+ 1859  git push -u origin main
+ 1860  git remote remove origin
+ 1861  git remote -v
+ 1862  echo "# RTS_Back" >> README.md
+ 1863  git init
+ 1864  git add .
+ 1865  git commit -m "first commit"
+ 1866  git branch -M main
+ 1867  git remote add origin https://github.com/Atinkene/RTS_Back.git
+ 1868  git push -u origin main
+ 1869  cd client/
+ 1870  echo "# RTS_Front" >> README.md
+ 1871  git init
+ 1872  git add .
+ 1873  git commit -m "first commit"
+ 1874  git branch -M main
+ 1875  git remote add origin https://github.com/Atinkene/RTS_Front.git
+ 1876  git push -u origin main
+ 1877  cliear
+ 1878  clear
+ 1879  git init
+ 1880  git add .
+ 1881  git commit -m "first commit"
+ 1882  git branch -M main
+ 1883  git remote add origin https://github.com/Atinkene/RTS_Front.git
+ 1884  git push -u origin main
+ 1885  git add .
+ 1886  git commit -m "Dockerfile"
+ 1887  git push -u origin main
+ 1888  git add .
+ 1889  git commit -m "Dockerfile1"
+ 1890  git push -u origin main
+ 1891  npm install react-scripts --save
+ 1892  git add package.json package-lock.json
+ 1893  git commit -m "Ajout de react-scripts"
+ 1894  git push origin main
+ 1895  git push
+ 1896  git add .
+ 1897  git commit -m "Ajout de la config de nginx et mise à jour du Dockerfile"
+ 1898  git push origin main
+ 1899  git add .
+ 1900  git commit -m "Ajout de render.yaml"
+ 1901  git push origin main
+ 1902  git add .
+ 1903  git commit -m "Mise a jour du Dockerfile"
+ 1904  sudo apt update ; sudo apt dist-upgrade
+ 1905  cd ..
+ 1906  npm start
+ 1907  git add .
+ 1908  git commit -m "Responsive"
+ 1909  git push origin main
+ 1910  git add .
+ 1911  git commit -m "Configuration des équipements"
+ 1912  git push origin main
+ 1913  git add .
+ 1914  git commit -m "Responsive"
+ 1915  git push origin main
+ 1916  git add .
+ 1917  git commit -m "Responsive"
+ 1918  git push origin main
+ 1919  git add .
+ 1920  git commit -m "Linkconfig update"
+ 1921  cd ..; cd server
+ 1922  git add .
+ 1923  git commit -m "Linkconfig update"
+ 1924  git push origin main
+ 1925  cd ..; cd client
+ 1926  git add .
+ 1927  git commit -m "Linkconfig update"
+ 1928  git push origin main
+ 1929  git remote -v
+ 1930  git add .
+ 1931  git commit -m "Linkconfig update"
+ 1932  git push origin main
+ 1933  git add .
+ 1934  git commit -m "Linkconfig update"
+ 1935  git push origin main
+ 1936  cd ..; cd server
+ 1937  git add .
+ 1938  git commit -m "Linkconfig update"
+ 1939  git push origin main
+ 1940  git add .
+ 1941  git commit -m "Linkconfig update"
+ 1942  git push origin main
+ 1943  cd ..; cd client
+ 1944  git add .
+ 1945  git commit -m "Linkconfig update"
+ 1946  git push origin main
+ 1947  git add .
+ 1948  git commit -m "Linkconfig update"
+ 1949  git push origin main
+ 1950  cd ..; cd server
+ 1951  git add .
+ 1952  git commit -m "Linkconfig update"
+ 1953  git push origin main
+ 1954  cd client
+ 1955  git add .
+ 1956  git commit -m "Linkconfig update"
+ 1957  git push origin main
+ 1958  cd .. ; cd server
+ 1959  git add .
+ 1960  git commit -m "Linkconfig update"
+ 1961  git push origin main
+ 1962  git add .
+ 1963  git commit -m "Linkconfig update"
+ 1964  git push origin main
+ 1965  cd .. ; cd client
+ 1966  git add .
+ 1967  git commit -m "Linkconfig update"
+ 1968  git push origin main
+ 1969  git add .
+ 1970  git commit -m "LinkconfigPopup update"
+ 1971  git push origin main
+ 1972  git add .
+ 1973  git commit -m "LinkconfigPopup update"
+ 1974  git add .
+ 1975  git commit -m "LinkconfigPopup update"
+ 1976  git push origin main
+ 1977  code .
+ 1978  cd client/
+ 1979  npm start
+ 1980  sudo snap install vlc
+ 1981  git pull origin main
+ 1982  git remote -v
+ 1983  git fetch origin
+ 1984  git log HEAD..origin/main --oneline
+ 1985  git pull --rebase origin main
+ 1986  code .
+ 1987  sudo apt-get install wget gpg
+ 1988  wget -qO- "https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsurf.gpg" | gpg --dearmor > windsurf-stable.gpg
+ 1989  sudo install -D -o root -g root -m 644 windsurf-stable.gpg /etc/apt/keyrings/windsurf-stable.gpg
+ 1990  echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/windsurf-stable.gpg] https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/apt stable main" | sudo tee /etc/apt/sources.list.d/windsurf.list > /dev/null
+ 1991  rm -f windsurf-stable.gpg
+ 1992  sudo apt install apt-transport-https
+ 1993  sudo apt update
+ 1994  sudo apt install windsurf
+ 1995  curl -X POST http://localhost:8080/api/menu -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC" -F "menu={\"nom\": \"Pizza Margherita\", \"description\": \"Pizza classique avec sauce tomate, mozzarella et basilic frais\", \"prix\": 12.50, \"categorie\": \"PIZZA\", \"estActif\": true};type=application/json" -F "images=@/home/massina/Images/pp.png"
+ 1996  echo "{
+  "nom": "Pizza Margherita",
+  "description": "Pizza classique avec sauce tomate, mozzarella et basilic frais",
+  "prix": 12.50,
+  "categorie": "PIZZA",
+  "estActif": true
+}" > menu.json
+ 1997  ls
+ 1998  cat menu.json 
+ 1999  curl -X POST http://localhost:8080/api/menu -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC" -F "menu=@menu.json;type=application/json" -F "images=@/home/massina/Images/pp.png"
+ 2000  curl -X GET http://localhost:8080/api/menu   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"
+ 2001  curl -v -X POST http://localhost:8080/api/menu   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -F 'menu={"nom": "Pizza Margherita", "description": "Pizza classique", "prix": 12.50, "categorie": "PIZZA", "estActif": true};type=application/json'   -F "images=@/home/massina/Images/pp.png"
+ 2002  ls -la /home/massina/Images/pp.png
+ 2003  curl -v -X GET http://localhost:8080/api/menu   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"
+ 2004  curl -v -X POST http://localhost:8080/api/menu   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d
+ 2005  curl -v -X POST http://localhost:8080/api/menu   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"nom": "Pizza Test", "description": "Test", "prix": 10.0, "categorie": "PIZZA", "estActif": true}'
+ 2006  curl -v -X POST http://localhost:8080/api/menu   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -F 'menu={"nom": "Pizza Margherita", "description": "Pizza classique", "prix": 12.50, "categorie": "PIZZA", "estActif": true};type=application/json'   -F "images=@/home/massina/Images/pp.png"
+ 2007  curl -X GET http://localhost:8080/api/menu   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"
+ 2008  curl -v -X POST http://localhost:8080/api/menu   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -F 'menu={"nom": "Pizza Margherita", "description": "Pizza classique", "prix": 12.50, "categorie": "PIZZA", "estActif": true};type=application/json'   -F "images=@/home/massina/Images/pp.png"
+ 2009  ls
+ 2010  cd FoodyBack/
+ 2011  ls
+ 2012  ls -l uploads/menus/
+ 2013  chmod -R 755 uploads
+ 2014  curl -v -X POST http://localhost:8080/api/menu/5/images \  -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "content-Type: multipart/form-data" \  -F "images=@/home/massina/Images/pp.png \ -F "images=@/home/massina/Images/pp.png \ -F "images=@/home/massina/Images/pp.png"
+ 2015  curl -v -X POST http://localhost:8080/api/menu/5/images \  -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "content-Type: multipart/form-data" \  -F "images=@/home/massina/Images/pp.png" \ -F "images=@/home/massina/Images/pp.png" \ -F "images=@/home/massina/Images/pp.png"
+ 2016  curl POST http://localhost:8080/api/menu/5/images \  -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "content-Type: multipart/form-data" \  -F "images=@/home/massina/Images/pp.png" \ -F "images=@/home/massina/Images/pp.png" \ -F "images=@/home/massina/Images/pp.png"
+ 2017* curl -X POST http://localhost:8080/api/menu/5/images   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -F "files=@/home/massina/Images/pp.png"
+ 2018  curl POST http://localhost:8080/api/menu/5/images \  -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "content-Type: application/json" \ -d '{
+        "commandeId": 5,
+        "livreurId": 4
+      }'
+ 2019  curl POST http://localhost:8080/api/commandes \  -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "content-Type: application/json" \ -d '{
+        "commandeId": 5,
+        "livreurId": 4
+      }'
+ 2020  curl POST http://localhost:8080/api/commandes/5/assigner \  -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "content-Type: application/json" \ -d '{
+        "livreurId": 4
+      }'
+ 2021  curl POST http://localhost:8080/api/commandes/4/assigner \  -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "content-Type: application/json" \ -d '{
+        "livreurId": 4
+      }'
+ 2022  curl -X POST "http://localhost:8080/api/commandes/4/assigner"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"livreurId": 4}'
+ 2023  curl POST http://localhost:8080/api/menu/5/images \  -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "content-Type: multipart/form-data" \  -F "images=@/home/massina/Images/pp.png" \ -F "images=@/home/massina/Images/pp.png" \ -F "images=@/home/massina/Images/pp.png"
+ 2024  curl -X POST http://localhost:8080/api/menu/5/images   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -F "files=@/home/massina/Images/pp.png"   -F "files=@/home/massina/Images/pp.png"   -F "files=@/home/massina/Images/pp.png"
+ 2025  curl -X POST "http://localhost:8080/api/commandes/2/assigner"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"livreurId": 4}'
+ 2026  curl -X PUT "http://localhost:8080/api/commandes/4/status"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"status": "PRET"}'
+ 2027  curl -X PUT "http://localhost:8080/api/commandes/4/statut"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"status": "PRET"}'
+ 2028  curl -X PUT "http://localhost:8080/api/commandes/4/statut"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"statut": "PRET"}'
+ 2029  curl -X POST "http://localhost:8080/api/commandes/4/assigner"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"livreurId": 4}'
+ 2030  curl -X POST "http://localhost:8080/api/commandes/2/initier"   -H "Content-Type: application/json"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiQ0xJRU5UIiwidXNlcklkIjoyLCJzdWIiOiJjbGllbnQxIiwiaWF0IjoxNzUxODU3ODAyLCJleHAiOjE3NTE5NDQyMDJ9.FgKk_f5LEs2MTtGoWOC0nVtqo5jO5FHmxXkg31Tt2Bzgyy3OQLFnl09Wne2o_co7"   -d '{
+    "optionLivraison": "LIVRAISON",
+    "adresse": "123 Rue de la Paix, Dakar",
+    "articles": [
+      {
+        "menuId": 1,
+        "quantite": 2
+      },
+      {
+        "menuId": 3,
+        "quantite": 1
+      }
+    ]
+  }'
+ 2031  curl -X GET http://localhost:8080/api/menu   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"
+ 2032  curl -v -X POST http://localhost:8080/api/menu/5/images \  -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "content-Type: multipart/form-data" \  -F "images=@/home/massina/Images/pp.png" \ -F "images=@/home/massina/Images/pp.png" \ -F "images=@/home/massina/Images/pp.png"
+ 2033  curl -v -X POST http://localhost:8080/api/menu   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"nom": "Pizza Test", "description": "Test", "prix": 10.0, "categorie": "PIZZA", "estActif": true}'
+ 2034  curl -X POST http://localhost:8080/api/menu/5/images   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -F "files=@/home/massina/Images/pp.png"   -F "files=@/home/massina/Images/pp.png"   -F "files=@/home/massina/Images/pp.png"
+ 2035  history
+ 2036  curl -X POST "http://localhost:8080/api/commandes/4/assigner"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"livreurId": 4}'
+ 2037  curl -X PUT "http://localhost:8080/api/commandes/3/statut"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"statut": "PRET"}'
+ 2038  curl -X POST "http://localhost:8080/api/commandes/3/accepter"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInVzZXJJZCI6NCwic3ViIjoibGl2cmV1cjEiLCJpYXQiOjE3NTE5MjE1NjEsImV4cCI6MTc1MjAwNzk2MX0.3TRoVE7d71l_W6FWa0kYU2s9q_Vh0eq2m4iraKk2JhxXEMD7qughuDF8J0d7Pwfw"   -H "Content-Type: application/json"   -d '{"livreurId": 4}'
+ 2039  curl -X PUT "http://localhost:8080/api/commandes/5/statut"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"statut": "PRET"}'
+ 2040  curl -X PUT "http://localhost:8080/api/commandes/3/statut"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"statut": "PRET"}'
+ 2041  curl -X PUT "http://localhost:8080/api/commandes/5/statut"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE4NDAyMzQsImV4cCI6MTc1MTkyNjYzNH0.o0kV87euzQ11Dy2Q6LbGerO3Jp2qu1tfmjG4iKjUbDQl4vS1sicVsKn-DYKj8LYC"   -H "Content-Type: application/json"   -d '{"statut": "PRET"}'
+ 2042  history
+ 2043  clear
+ 2044  curl -X GET "http://localhost:8080/api/commandes?sortBy=dateCreation&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE5Mjk3OTAsImV4cCI6MTc1MjAxNjE5MH0.QWC3Hy6V3tlf6l6sJ0FdMATKFKgpacHUz7trrlyLGI9TpyjHDZfT4zIrn-Rw3oF6>"
+ 2045  curl -X GET "http://localhost:8080/api/commandes?sortBy=cree_le&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE5Mjk3OTAsImV4cCI6MTc1MjAxNjE5MH0.QWC3Hy6V3tlf6l6sJ0FdMATKFKgpacHUz7trrlyLGI9TpyjHDZfT4zIrn-Rw3oF6>"
+ 2046  curl -X GET "http://localhost:8080/api/commandes?sortBy=creeLe&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE5Mjk3OTAsImV4cCI6MTc1MjAxNjE5MH0.QWC3Hy6V3tlf6l6sJ0FdMATKFKgpacHUz7trrlyLGI9TpyjHDZfT4zIrn-Rw3oF6>"
+ 2047  curl -X PUT "http://localhost:8080/api/commandes/5/statut"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInVzZXJJZCI6MSwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE5Mjk3OTAsImV4cCI6MTc1MjAxNjE5MH0.QWC3Hy6V3tlf6l6sJ0FdMATKFKgpacHUz7trrlyLGI9TpyjHDZfT4zIrn-Rw3oF6"   -H "Content-Type: application/json"   -d '{"statut": "PRET"}'
+ 2048  curl -X POST "http://localhost:8080/api/commandes/5/accepter"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInVzZXJJZCI6NCwic3ViIjoibGl2cmV1cjEiLCJpYXQiOjE3NTE5MjE1NjEsImV4cCI6MTc1MjAwNzk2MX0.3TRoVE7d71l_W6FWa0kYU2s9q_Vh0eq2m4iraKk2JhxXEMD7qughuDF8J0d7Pwfw"   -H "Content-Type: application/json"   -d '{"livreurId": 4}'
+ 2049  curl -X GET "http://localhost:8080/api/commandes/livreur/self?sortBy=creeLe&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInVzZXJJZCI6NCwic3ViIjoibGl2cmV1cjEiLCJpYXQiOjE3NTE5Mjg4NTUsImV4cCI6MTc1MjAxNTI1NX0.zXZ4jILHgwzT1I9GS4WUrxKC6kNVgLzAi-wwVqO9iPuBY4wV-h88C4EYgW5Z2THs"
+ 2050  curl -X GET "http://localhost:8080/api/commandes/livreur/4?sortBy=creeLe&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInVzZXJJZCI6NCwic3ViIjoibGl2cmV1cjEiLCJpYXQiOjE3NTE5Mjg4NTUsImV4cCI6MTc1MjAxNTI1NX0.zXZ4jILHgwzT1I9GS4WUrxKC6kNVgLzAi-wwVqO9iPuBY4wV-h88C4EYgW5Z2THs"
+ 2051  curl -X GET "http://localhost:8080/api/commandes/livreur/self?sortBy=creeLe&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInVzZXJJZCI6NCwic3ViIjoibGl2cmV1cjEiLCJpYXQiOjE3NTE5Mjg4NTUsImV4cCI6MTc1MjAxNTI1NX0.zXZ4jILHgwzT1I9GS4WUrxKC6kNVgLzAi-wwVqO9iPuBY4wV-h88C4EYgW5Z2THs"
+ 2052  curl -X POST "http://localhost:8080/api/commandes/livreur/self?sortBy=creeLe&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInVzZXJJZCI6NCwic3ViIjoibGl2cmV1cjEiLCJpYXQiOjE3NTE5Mjg4NTUsImV4cCI6MTc1MjAxNTI1NX0.zXZ4jILHgwzT1I9GS4WUrxKC6kNVgLzAi-wwVqO9iPuBY4wV-h88C4EYgW5Z2THs"
+ 2053  curl -X GET "http://localhost:8080/api/commandes/livreur/self?sortBy=creeLe&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInVzZXJJZCI6NCwic3ViIjoibGl2cmV1cjEiLCJpYXQiOjE3NTE5Mjg4NTUsImV4cCI6MTc1MjAxNTI1NX0.zXZ4jILHgwzT1I9GS4WUrxKC6kNVgLzAi-wwVqO9iPuBY4wV-h88C4EYgW5Z2THs"
+ 2054  curl -X GET "http://localhost:8080/api/commandes/livreur/self?sortBy=creeLe&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInVzZXJJZCI6NCwic3ViIjoibGl2cmV1cjEiLCJpYXQiOjE3NTE5Mzc3MzUsImV4cCI6MTc1MjAyNDEzNX0.UUCT8v91DMFeSUZNLAUnrNcP-VmSnfXD-roLMjcPyJ4yJ0BC8NarCkgdhNYJG77_"
+ 2055  curl -X GET "http://localhost:8080/api/commandes/livreur/self?sortBy=creeLe&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInRlbGVwaG9uZSI6IjEyMzQ1Njc4MDYiLCJ1c2VySWQiOjQsImVtYWlsIjoibGl2cmV1cjFAZm9vZHliYWNrLmNvbSIsInN1YiI6ImxpdnJldXIxIiwiaWF0IjoxNzUxOTM4NDAzLCJleHAiOjE3NTIwMjQ4MDN9.hYfRfYZo1Jt4qn_IDYHU0Imz4live-oWHk1YqrsSEgVKUGnag7_oo4fPoBIumeYv"
+ 2056  curl -X GET "http://localhost:8080/api/commandes/livreur/self?sortBy=creeLe&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInRlbGVwaG9uZSI6IjEyMzQ1Njc4MDYiLCJ1c2VySWQiOjQsImVtYWlsIjoibGl2cmV1cjFAZm9vZHliYWNrLmNvbSIsInN1YiI6ImxpdnJldXIxIiwiaWF0IjoxNzUxOTQxMjM0LCJleHAiOjE3NTIwMjc2MzR9.b4QMOJDcnkyvV9kJDHTGYVXMfhT1rGLZDbTHCAxlIVk_448dU35meS6jf27Rb1BD"
+ 2057  curl -X GET "http://localhost:8080/api/commandes/livreur/self?sortByself/count/statut/LIVREE -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInRlbGVwaG9uZSI6IjEyMzQ1Njc4MDYiLCJ1c2VySWQiOjQsImVtYWlsIjoibGl2cmV1cjFAZm9vZHliYWNrLmNvbSIsInN1YiI6ImxpdnJldXIxIiwiaWF0IjoxNzUxOTQxMjM0LCJleHAiOjE3NTIwMjc2MzR9.b4QMOJDcnkyvV9kJDHTGYVXMfhT1rGLZDbTHCAxlIVk_448dU35meS6jf27Rb1BD"
+ 2058  curl -X GET "http://localhost:8080/api/commandes/livreur/self/count/statut/LIVREE" -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInRlbGVwaG9uZSI6IjEyMzQ1Njc4MDYiLCJ1c2VySWQiOjQsImVtYWlsIjoibGl2cmV1cjFAZm9vZHliYWNrLmNvbSIsInN1YiI6ImxpdnJldXIxIiwiaWF0IjoxNzUxOTQxMjM0LCJleHAiOjE3NTIwMjc2MzR9.b4QMOJDcnkyvV9kJDHTGYVXMfhT1rGLZDbTHCAxlIVk_448dU35meS6jf27Rb1BD"
+ 2059  curl -X GET "http://localhost:8080/api/commandes/livreur/self/count/statut/EN_LIVRAISON" -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTElWUkVVUiIsInRlbGVwaG9uZSI6IjEyMzQ1Njc4MDYiLCJ1c2VySWQiOjQsImVtYWlsIjoibGl2cmV1cjFAZm9vZHliYWNrLmNvbSIsInN1YiI6ImxpdnJldXIxIiwiaWF0IjoxNzUxOTQxMjM0LCJleHAiOjE3NTIwMjc2MzR9.b4QMOJDcnkyvV9kJDHTGYVXMfhT1rGLZDbTHCAxlIVk_448dU35meS6jf27Rb1BD"
+ 2060  curl -X GET "http://localhost:8080/api/commandes/livreur/4?sortBy=creeLe&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInRlbGVwaG9uZSI6IjEyMzQ1Njc4MCIsInVzZXJJZCI6MSwiZW1haWwiOiJtYW5hZ2VyMUBmb29keWJhY2suY29tIiwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE5NDIxNjgsImV4cCI6MTc1MjAyODU2OH0.s-tA8FAO6q9I8eDX8m193kXmqxRo4pmEY7VGxtMG66CIUKdyp4F_kTW2P8Egotf0"
+ 2061  curl -X GET "http://localhost:8080/api/commandes/livreur/4?stotal" -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInRlbGVwaG9uZSI6IjEyMzQ1Njc4MCIsInVzZXJJZCI6MSwiZW1haWwiOiJtYW5hZ2VyMUBmb29keWJhY2suY29tIiwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE5NDIxNjgsImV4cCI6MTc1MjAyODU2OH0.s-tA8FAO6q9I8eDX8m193kXmqxRo4pmEY7VGxtMG66CIUKdyp4F_kTW2P8Egotf0"
+ 2062  curl -X GET "http://localhost:8080/api/commandes/total" -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInRlbGVwaG9uZSI6IjEyMzQ1Njc4MCIsInVzZXJJZCI6MSwiZW1haWwiOiJtYW5hZ2VyMUBmb29keWJhY2suY29tIiwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE5NDIxNjgsImV4cCI6MTc1MjAyODU2OH0.s-tA8FAO6q9I8eDX8m193kXmqxRo4pmEY7VGxtMG66CIUKdyp4F_kTW2P8Egotf0"
+ 2063  curl -X GET "http://localhost:8080/api/commandes/total" countuthorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInRlbGVwaG9uZSI6IjEyMzQ1Njc4MCIsInVzZXJJZCI6MSwiZW1haWwiOiJtYW5hZ2VyMUBmb29keWJhY2suY29tIiwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE5NDIxNjgsImV4cCI6MTc1MjAyODU2OH0.s-tA8FAO6q9I8eDX8m193kXmqxRo4pmEY7VGxtMG66CIUKdyp4F_kTW2P8Egotf0"
+ 2064  curl -X GET "http://localhost:8080/api/commandes/count" -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInRlbGVwaG9uZSI6IjEyMzQ1Njc4MCIsInVzZXJJZCI6MSwiZW1haWwiOiJtYW5hZ2VyMUBmb29keWJhY2suY29tIiwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE5NDIxNjgsImV4cCI6MTc1MjAyODU2OH0.s-tA8FAO6q9I8eDX8m193kXmqxRo4pmEY7VGxtMG66CIUKdyp4F_kTW2P8Egotf0"
+ 2065  curl -X GET "http://localhost:8080/api/commandes/livreur/4?sortBy=creeLe&sortDir=desc"   -H "Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiTUFOQUdFUiIsInRlbGVwaG9uZSI6IjEyMzQ1Njc4MCIsInVzZXJJZCI6MSwiZW1haWwiOiJtYW5hZ2VyMUBmb29keWJhY2suY29tIiwic3ViIjoibWFuYWdlcjEiLCJpYXQiOjE3NTE5NDIxNjgsImV4cCI6MTc1MjAyODU2OH0.s-tA8FAO6q9I8eDX8m193kXmqxRo4pmEY7VGxtMG66CIUKdyp4F_kTW2P8Egotf0"
+ 2066  history
+ 2067  history > commande
