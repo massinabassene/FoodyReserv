@@ -1,0 +1,200 @@
+/* Animation de chargement avec thème alimentaire */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-content {
+  text-align: center;
+  color: white;
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.loading-text {
+  font-size: 1.8rem;
+  margin: 2rem 0;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.loading-progress {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.loading-progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #ffcc00, #ff6600);
+  border-radius: 10px;
+  animation: loadProgress 3s ease-in-out forwards;
+}
+
+@keyframes loadProgress {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* Animation du plat de nourriture */
+.food-loader {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.plate {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 30px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.fork-knife {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  animation: wiggle 1s infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(-5deg); }
+  75% { transform: translateX(-50%) rotate(5deg); }
+}
+
+.fork, .knife {
+  width: 10px;
+  height: 60px;
+  background: #d1d1d1;
+  border-radius: 5px;
+}
+
+.fork {
+  position: relative;
+}
+
+.fork:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: #d1d1d1;
+  border-radius: 5px;
+}
+
+.food-items {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.food-item {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: appearFood 3s forwards;
+}
+
+.rice {
+  width: 100px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  bottom: 10px;
+  animation-delay: 0.2s;
+}
+
+.fish {
+  width: 70px;
+  height: 40px;
+  background: #ff9e2c;
+  border-radius: 40%;
+  bottom: 40px;
+  animation-delay: 0.8s;
+}
+
+.vegetables {
+  width: 20px;
+  height: 20px;
+  background: #4caf50;
+  border-radius: 50%;
+  bottom: 60px;
+  left: 40px;
+  animation-delay: 1.4s;
+}
+
+.sauce {
+  width: 80px;
+  height: 15px;
+  background: rgba(255, 87, 34, 0.7);
+  border-radius: 50%;
+  bottom: 70px;
+  animation-delay: 2s;
+}
+
+@keyframes appearFood {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation d'entrée et de sortie */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.loading-container.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
