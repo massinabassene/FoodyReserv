@@ -1,21 +1,19 @@
-[variables]
-# Forcer l'utilisation de Gradle
-NIXPACKS_JVM_TOOLS = "gradle"
+# Configuration Railway pour Backend et Frontend
 
-[phases.setup]
-nixPkgs = ['openjdk17']
+# Service Backend
+[environments.production.services.backend]
+build.workdir = "FoodyBack/org"
+build.dockerfile = "../../Dockerfile"
 
-[phases.build]
-# Aller dans le bon répertoire et utiliser Gradle
-dependsOn = ['setup']
-cmds = [
-    'cd FoodyBack/org',
-    'chmod +x gradlew',
-    './gradlew bootJar -x test --no-daemon'
-]
+[environments.production.services.backend.variables]
+SPRING_PROFILES_ACTIVE = "prod"
+PORT = "8080"
 
-[phases.start]
-cmd = 'cd FoodyBack/org && java -jar build/libs/*.jar'
+# Service Frontend
+[environments.production.services.frontend]
+build.workdir = "foodyfront"
+build.dockerfile = "Dockerfile"
 
-[start]
-cmd = 'cd FoodyBack/org && java -jar build/libs/*.jar'
+[environments.production.services.frontend.variables]
+PORT = "80"
+REACT_APP_API_URL = "${{backend.RAILWAY_PUBLIC_DOMAIN}}"
