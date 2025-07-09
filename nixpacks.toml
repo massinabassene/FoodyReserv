@@ -1,21 +1,21 @@
-#[variables]
-## Forcer l'utilisation de Gradle
-#NIXPACKS_JVM_TOOLS = "gradle"
-#
-#[phases.setup]
-#nixPkgs = ['openjdk17']
-#
-#[phases.build]
-## Aller dans le bon répertoire et utiliser Gradle
-#dependsOn = ['setup']
-#cmds = [
-#    'cd FoodyBack/org',
-#    'chmod +x gradlew',
-#    './gradlew bootJar -x test --no-daemon'
-#]
-#
-#[phases.start]
-#cmd = 'cd FoodyBack/org && java -jar build/libs/*.jar'
-#
-#[start]
-#cmd = 'cd FoodyBack/org && java -jar build/libs/*.jar'
+[variables]
+# Forcer l'utilisation de Gradle
+NIXPACKS_JVM_TOOLS = "gradle"
+
+[phases.setup]
+nixPkgs = ['openjdk17']
+
+[phases.build]
+# Aller dans le bon répertoire et utiliser Gradle
+dependsOn = ['setup']
+cmds = [
+    'cd FoodyBack/org',
+    'chmod +x gradlew',
+    './gradlew bootJar -x test --no-daemon'
+]
+
+[phases.start]
+cmd = 'cd FoodyBack/org && java -jar build/libs/*.jar'
+
+[start]
+cmd = 'cd FoodyBack/org && java -jar build/libs/*.jar'
