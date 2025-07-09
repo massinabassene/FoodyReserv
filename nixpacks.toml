@@ -16,4 +16,4 @@ build.dockerfile = "Dockerfile"
 
 [environments.production.services.frontend.variables]
 PORT = "80"
-REACT_APP_API_URL = "${{backend.RAILWAY_PUBLIC_DOMAIN}}"
+REACT_APP_API_URL = "foodyreserv-backend.up.railway.app"
