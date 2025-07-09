@@ -15,7 +15,4 @@ cmds = [
 ]
 
 [phases.start]
-cmd = 'cd FoodyBack/org && java -jar build/libs/*.jar'
-
-[start]
-cmd = 'cd FoodyBack/org && java -jar build/libs/*.jar'
+cmd = 'cd FoodyBack/org && java -jar build/libs/foodyback.jar'
