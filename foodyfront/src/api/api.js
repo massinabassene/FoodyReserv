@@ -210,37 +210,41 @@ export const getFeedbacksByOrder = (commandeId, role) => {
 export const getActiveMenus = () => api.get('/menu');
 export const getMenusByCategory = (categorie) => api.get(`/menu/categorie/${categorie}`);
 
-export const createMenu = (menu, images, role) => {
+// Alternative si le problème persiste
+export const createMenu = async (menu, images, role) => {
   if (role !== 'MANAGER') throw new Error('Accès non autorisé');
   
-  // Si il y a des images, utiliser multipart/form-data
-  if (images && images.length > 0) {
-    const formData = new FormData();
-    
-    // Créer un blob avec le bon Content-Type pour que Spring Boot puisse le parser
-    const menuBlob = new Blob([JSON.stringify(menu)], {
-      type: 'application/json'
-    });
-    
-    formData.append('menu', menuBlob);
-    
-    // Ajouter les images
-    images.forEach((image) => {
-      formData.append('images', image);
-    });
-    
-    return api.post('/menu', formData, {
-      headers: { 
-        'Content-Type': 'multipart/form-data' 
-      },
-    });
-  } else {
-    // Si pas d'images, utiliser application/json
-    return api.post('/menu', menu, {
+  try {
+    // Créer d'abord le menu sans images
+    const menuResponse = await api.post('/menu', menu, {
       headers: { 
         'Content-Type': 'application/json' 
       },
     });
+    
+    const createdMenu = menuResponse.data;
+    
+    // Ensuite, ajouter les images si elles existent
+    if (images && images.length > 0 && createdMenu.id) {
+      const formData = new FormData();
+      images.forEach((image) => {
+        formData.append('files', image);
+      });
+      
+      const imagesResponse = await api.post(`/menu/${createdMenu.id}/images`, formData, {
+        headers: { 
+          'Content-Type': 'multipart/form-data' 
+        },
+      });
+      
+      return imagesResponse; // Retourne le menu avec les images
+    }
+    
+    return menuResponse; // Retourne le menu sans images
+    
+  } catch (error) {
+    console.error('Erreur lors de la création du menu:', error);
+    throw error;
   }
 };
 
