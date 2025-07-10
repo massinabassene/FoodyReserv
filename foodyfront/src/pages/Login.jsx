@@ -27,7 +27,7 @@ export default function LoginPage() {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/connexion', {
+      const response = await axios.post('https://foodyreserv-backend.up.railway.app/api/auth/connexion', {
         nomUtilisateur: identifier,
         motDePasse: password,
       });
