@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  activemq:
+    image: rmohr/activemq:6.1.6
+    ports:
+      - "61616:61616"   # port JMS
+      - "8161:8161"     # interface web ActiveMQ
+    environment:
+      ACTIVEMQ_ADMIN_LOGIN: admin
+      ACTIVEMQ_ADMIN_PASSWORD: admin
+
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_ACTIVEMQ_BROKER_URL=tcp://activemq:61616
+      - SPRING_ACTIVEMQ_USER=admin
+      - SPRING_ACTIVEMQ_PASSWORD=admin
+      - SERVER_PORT=8080
+    depends_on:
+      - activemq
