@@ -12,7 +12,7 @@ RUN chmod +x ./gradlew
 RUN ./gradlew bootJar --no-daemon -x test
 
 RUN ls build/libs
-RUN cp build/libs/*.jar app.jar
+RUN cp build/libs/foodyback.jar app.jar
 
 EXPOSE 8080
 CMD ["java", "-jar", "app.jar"]
