@@ -26,15 +26,20 @@ public class CommandeService {
     private final CommandeRepository commandeRepository;
     private final UtilisateurRepository utilisateurRepository;
     private final MenuRepository menuRepository;
+    private final PaydunyaService paydunyaService;
+    private final NotificationService notificationService;
 
     @Value("${livraison.frais:5.0}")
     private Double fraisLivraison;
 
     public CommandeService(CommandeRepository commandeRepository, UtilisateurRepository utilisateurRepository,
-                           MenuRepository menuRepository) {
+                           MenuRepository menuRepository, PaydunyaService paydunyaService,
+                           NotificationService notificationService) {
         this.commandeRepository = commandeRepository;
         this.utilisateurRepository = utilisateurRepository;
         this.menuRepository = menuRepository;
+        this.paydunyaService = paydunyaService;
+        this.notificationService = notificationService;
     }
 
     @Transactional
@@ -71,8 +76,15 @@ public class CommandeService {
         }
         commande.setPrixTotal(prixTotal);
 
+        String paymentUrl = paydunyaService.initierPaiement(prixTotal, commande.getId() != null ? commande.getId().toString() : UUID.randomUUID().toString(), client.getEmail());
 
         Commande savedCommande = commandeRepository.save(commande);
+
+        notificationService.notifyClient(savedCommande, "Commande prise en charge. Code de confirmation: " + savedCommande.getCodeConfirmation());
+        notificationService.notifyManager(savedCommande);
+        if (savedCommande.getOptionLivraison() == Commande.OptionLivraison.LIVRAISON) {
+            notificationService.notifyLivreursDisponibles(savedCommande);
+        }
 
         return savedCommande;
     }
@@ -131,6 +143,7 @@ public class CommandeService {
         commande.setPrixTotal(prixTotal);
 
         Commande savedCommande = commandeRepository.save(commande);
+        notificationService.notifyClient(savedCommande, "Commande mise à jour avec succès");
         
         return savedCommande;
     }
@@ -144,6 +157,8 @@ public class CommandeService {
         }
         commande.setStatut(Commande.Statut.ANNULE);
         commandeRepository.save(commande);
+        notificationService.notifyClient(commande, "Commande annulée avec succès");
+        notificationService.notifyManager(commande);
     }
 
     public Double calculerTotalCommandesClient(Long clientId) {
@@ -165,6 +180,9 @@ public class CommandeService {
                 .orElseThrow(() -> new IllegalArgumentException("Commande introuvable"));
         commande.setStatut(Commande.Statut.valueOf(statut));
         Commande updatedCommande = commandeRepository.save(commande);
+        if (statut.equals("PRET") && commande.getOptionLivraison() == Commande.OptionLivraison.LIVRAISON) {
+            notificationService.notifyLivreursDisponibles(updatedCommande);
+        }
         return updatedCommande;
     }
 
@@ -197,6 +215,7 @@ public class CommandeService {
         commande.setLivreur(livreur);
         commande.setStatut(Commande.Statut.EN_LIVRAISON);
         Commande savedCommande = commandeRepository.save(commande);
+        notificationService.notifyLivreur(livreur, savedCommande, "Nouvelle livraison assignée.");
         return savedCommande;
     }
 
@@ -230,6 +249,7 @@ public class CommandeService {
                 codeConfirmation.equals(commande.getCodeConfirmation())) {
             commande.setStatut(Commande.Statut.LIVREE);
             Commande savedCommande = commandeRepository.save(commande);
+            notificationService.notifyClient(savedCommande, "Commande livrée avec succès");
             return savedCommande;
         } else {
             throw new IllegalArgumentException("Code de confirmation invalide");
