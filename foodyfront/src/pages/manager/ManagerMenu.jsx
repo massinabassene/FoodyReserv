@@ -94,18 +94,27 @@ const handleAddMenu = async () => {
         throw new Error('Le nom et le prix sont obligatoires');
       }
       
-      // Préparer les données du menu sans l'image
+      // Préparer les données du menu sans l'image base64
       const menuData = {
-        nom: currentMenu.nom,
-        description: currentMenu.description,
-        prix: currentMenu.prix,
+        nom: currentMenu.nom.trim(),
+        description: currentMenu.description.trim(),
+        prix: parseFloat(currentMenu.prix),
         categorie: currentMenu.categorie,
         estActif: currentMenu.estActif
       };
       
+      console.log('Données du menu à envoyer:', menuData);
+      console.log('Images sélectionnées:', selectedImages);
+      
       // Créer le menu avec les images sélectionnées
       const newMenu = await createMenu(menuData, selectedImages, role);
-      setMenus([...menus, newMenu.data || newMenu]);
+      
+      // Ajouter le nouveau menu à la liste
+      if (newMenu.data) {
+        setMenus([...menus, newMenu.data]);
+      } else {
+        setMenus([...menus, newMenu]);
+      }
       console.log('Menu créé avec succès');
     }
     
@@ -115,8 +124,12 @@ const handleAddMenu = async () => {
     console.error('Erreur lors de la sauvegarde du menu:', error);
     
     // Afficher un message d'erreur spécifique à l'utilisateur
-    if (error.message === 'Accès non autorisé') {
+    if (error.response?.status === 401) {
       alert('Vous n\'avez pas les permissions pour effectuer cette action');
+    } else if (error.response?.status === 400) {
+      alert('Données invalides. Veuillez vérifier les champs du formulaire');
+    } else if (error.response?.status === 500) {
+      alert('Erreur serveur. Veuillez réessayer plus tard');
     } else if (error.message === 'Le nom et le prix sont obligatoires') {
       alert('Veuillez remplir tous les champs obligatoires');
     } else {

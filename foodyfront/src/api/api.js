@@ -213,25 +213,35 @@ export const getMenusByCategory = (categorie) => api.get(`/menu/categorie/${cate
 export const createMenu = (menu, images, role) => {
   if (role !== 'MANAGER') throw new Error('Accès non autorisé');
   
-  const formData = new FormData();
-  
-  // Ajouter les données du menu au format JSON avec le bon Content-Type
-  formData.append('menu', new Blob([JSON.stringify(menu)], {
-    type: 'application/json'
-  }));
-  
-  // Ajouter les images si elles existent
+  // Si il y a des images, utiliser multipart/form-data
   if (images && images.length > 0) {
+    const formData = new FormData();
+    
+    // Créer un blob avec le bon Content-Type pour que Spring Boot puisse le parser
+    const menuBlob = new Blob([JSON.stringify(menu)], {
+      type: 'application/json'
+    });
+    
+    formData.append('menu', menuBlob);
+    
+    // Ajouter les images
     images.forEach((image) => {
       formData.append('images', image);
     });
+    
+    return api.post('/menu', formData, {
+      headers: { 
+        'Content-Type': 'multipart/form-data' 
+      },
+    });
+  } else {
+    // Si pas d'images, utiliser application/json
+    return api.post('/menu', menu, {
+      headers: { 
+        'Content-Type': 'application/json' 
+      },
+    });
   }
-  
-  return api.post('/menu', formData, {
-    headers: { 
-      'Content-Type': 'multipart/form-data' 
-    },
-  });
 };
 
 export const updateMenu = (id, menu, role) => {
