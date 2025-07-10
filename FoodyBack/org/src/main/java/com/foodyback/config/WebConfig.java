@@ -30,6 +30,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/uploads/menus/**")
-                .addResourceLocations("file:uploads/menus/");
+            .addResourceLocations("file:/tmp/uploads/menus/");
+
     }
 }
