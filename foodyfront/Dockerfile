@@ -10,6 +10,8 @@ COPY package*.json ./
 # Installer les dépendances
 RUN npm install
 
+RUN npm install jwt-decode
+
 # Copier le reste du code
 COPY . ./
 
