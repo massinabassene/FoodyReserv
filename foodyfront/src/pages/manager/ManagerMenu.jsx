@@ -326,7 +326,7 @@ const handleAddMenu = async () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="h-12 w-12 rounded-md overflow-hidden bg-gray-100">
                         <img
-                          src={menu.images[0]?.imageUrl ? `http://localhost:8080${menu.images[0].imageUrl}` : "https://via.placeholder.com/150?text=Image+non+disponible"}
+                          src={menu.images[0]?.imageUrl ? `https://foodyreserv-backend.up.railway.app${menu.images[0].imageUrl}` : "https://via.placeholder.com/150?text=Image+non+disponible"}
                           alt={menu.nom}
                           className="h-full w-full object-cover"
                           onError={(e) => {
