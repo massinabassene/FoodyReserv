@@ -16,7 +16,7 @@ public class JmsConfig {
     @Bean
     public ActiveMQConnectionFactory connectionFactory() {
         ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory();
-        factory.setBrokerURL("tcp://localhost:61616");
+        factory.setBrokerURL("tcp://activemq:61616");
         factory.setUserName("admin");
         factory.setPassword("admin");
         return factory;
