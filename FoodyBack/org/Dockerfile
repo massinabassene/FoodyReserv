@@ -1,31 +1,31 @@
-# Étape 1 : Construction avec Gradle Wrapper
+# Étape 1 : Build avec Gradle Wrapper
 FROM gradle:8.5.0-jdk17 AS builder
 
 WORKDIR /app
 
-# Copier les fichiers nécessaires pour le cache des dépendances
+# Copier les fichiers nécessaires
 COPY build.gradle settings.gradle gradlew gradlew.bat ./
 COPY gradle ./gradle
 
-# Télécharger les dépendances (sans compiler encore le projet complet)
-RUN ./gradlew build -x test --no-daemon || return 0
+# Pré-charger les dépendances
+RUN ./gradlew build -x test --no-daemon || true
 
 # Copier le code source
 COPY src ./src
 
-# Construire le projet
-RUN ./gradlew clean build -x test --no-daemon
+# Build du jar exécutable
+RUN ./gradlew clean bootJar -x test --no-daemon
 
 # Étape 2 : Image d'exécution
 FROM eclipse-temurin:17-jdk-jammy
 
 WORKDIR /app
 
-# Copier le JAR compilé
-COPY --from=builder /app/build/libs/*.jar app.jar
+# Copier le JAR compilé (nom défini dans build.gradle)
+COPY --from=builder /app/build/libs/foodyback.jar app.jar
 
 # Exposer le port utilisé par Spring Boot
 EXPOSE 8080
 
-# Commande pour démarrer l'application
+# Démarrer l'application
 ENTRYPOINT ["java", "-jar", "app.jar"]
