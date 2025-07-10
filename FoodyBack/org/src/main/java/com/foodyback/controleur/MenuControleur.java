@@ -3,6 +3,7 @@ package com.foodyback.controleur;
 import com.foodyback.modele.Menu;
 import com.foodyback.modele.MenuImage;
 import com.foodyback.service.MenuService;
+import com.foodyback.service.CloudinaryService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
@@ -16,10 +17,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Optional;
 import java.util.ArrayList;
-import java.util.UUID;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.Path;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -30,10 +27,12 @@ import java.io.InputStream;
 @RequestMapping("/api/menu")
 public class MenuControleur {
     private final MenuService menuService;
+    private final CloudinaryService cloudinaryService;
     private final ObjectMapper objectMapper;
 
-    public MenuControleur(MenuService menuService, ObjectMapper objectMapper) {
+    public MenuControleur(MenuService menuService, CloudinaryService cloudinaryService, ObjectMapper objectMapper) {
         this.menuService = menuService;
+        this.cloudinaryService = cloudinaryService;
         this.objectMapper = objectMapper;
     }
 
@@ -105,35 +104,30 @@ public class MenuControleur {
             
             // Traiter les images si elles sont fournies
             if (images != null && !images.isEmpty()) {
-                String folder = "uploads/menus/";
-                Files.createDirectories(Paths.get(folder));
-                
                 for (MultipartFile file : images) {
                     // Valider le fichier
                     if (file.isEmpty()) {
                         continue; // Ignorer les fichiers vides
                     }
                     
-                    // Valider le type de fichier
-                    String contentType = file.getContentType();
-                    if (contentType == null || !contentType.startsWith("image/")) {
+                    try {
+                        // Uploader l'image vers Cloudinary
+                        String imageUrl = cloudinaryService.uploadImage(file, "foodyback/menus");
+                        
+                        // Créer l'entité MenuImage
+                        MenuImage menuImage = new MenuImage();
+                        menuImage.setImageUrl(imageUrl);
+                        menuImage.setMenu(menu);
+                        menu.getImages().add(menuImage);
+                        
+                    } catch (IOException e) {
+                        // Log l'erreur et continuer avec les autres images
+                        System.err.println("Erreur lors de l'upload de l'image: " + e.getMessage());
+                        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                    } catch (IllegalArgumentException e) {
+                        // Fichier invalide
                         return ResponseEntity.badRequest().build();
                     }
-                    
-                    // Générer un nom de fichier unique
-                    String filename = System.currentTimeMillis() + "_" + 
-                                   UUID.randomUUID().toString() + "_" + 
-                                   file.getOriginalFilename();
-                    Path filePath = Paths.get(folder + filename);
-                    
-                    // Sauvegarder le fichier
-                    file.transferTo(filePath);
-                    
-                    // Créer l'entité MenuImage
-                    MenuImage menuImage = new MenuImage();
-                    menuImage.setImageUrl("/" + folder + filename);
-                    menuImage.setMenu(menu);
-                    menu.getImages().add(menuImage);
                 }
             }
             
@@ -141,8 +135,6 @@ public class MenuControleur {
             Menu savedMenu = menuService.enregistrerMenu(menu);
             return ResponseEntity.ok(savedMenu);
             
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
@@ -162,7 +154,25 @@ public class MenuControleur {
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('MANAGER')")
     public ResponseEntity<Void> supprimerMenu(@PathVariable Long id) {
-        if (menuService.obtenirMenuParId(id).isPresent()) {
+        Optional<Menu> menuOpt = menuService.obtenirMenuParId(id);
+        if (menuOpt.isPresent()) {
+            Menu menu = menuOpt.get();
+            
+            // Supprimer les images de Cloudinary avant de supprimer le menu
+            if (menu.getImages() != null) {
+                for (MenuImage menuImage : menu.getImages()) {
+                    String publicId = cloudinaryService.extractPublicId(menuImage.getImageUrl());
+                    if (publicId != null) {
+                        try {
+                            cloudinaryService.deleteImage(publicId);
+                        } catch (IOException e) {
+                            // Log l'erreur mais continuer la suppression
+                            System.err.println("Erreur lors de la suppression de l'image Cloudinary: " + e.getMessage());
+                        }
+                    }
+                }
+            }
+            
             menuService.supprimerMenu(id);
             return ResponseEntity.noContent().build();
         }
@@ -190,35 +200,28 @@ public class MenuControleur {
                 menu.setImages(new ArrayList<>());
             }
             
-            String folder = "uploads/menus/";
-            Files.createDirectories(Paths.get(folder));
-            
             for (MultipartFile file : files) {
                 // Ignorer les fichiers vides
                 if (file.isEmpty()) {
                     continue;
                 }
                 
-                // Valider le type de fichier
-                String contentType = file.getContentType();
-                if (contentType == null || !contentType.startsWith("image/")) {
+                try {
+                    // Uploader l'image vers Cloudinary
+                    String imageUrl = cloudinaryService.uploadImage(file, "foodyback/menus");
+
+                    // Créer l'entité MenuImage
+                    MenuImage menuImage = new MenuImage();
+                    menuImage.setImageUrl(imageUrl);
+                    menuImage.setMenu(menu);
+                    menu.getImages().add(menuImage);
+                    
+                } catch (IOException e) {
+                    System.err.println("Erreur lors de l'upload de l'image: " + e.getMessage());
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                } catch (IllegalArgumentException e) {
                     return ResponseEntity.badRequest().build();
                 }
-                
-                // Générer un nom de fichier unique
-                String filename = id + "_" + System.currentTimeMillis() + "_" + 
-                               UUID.randomUUID().toString() + "_" + 
-                               file.getOriginalFilename();
-                Path filePath = Paths.get(folder + filename);
-                
-                // Sauvegarder le fichier
-                file.transferTo(filePath);
-
-                // Créer l'entité MenuImage
-                MenuImage menuImage = new MenuImage();
-                menuImage.setImageUrl("/" + folder + filename);
-                menuImage.setMenu(menu);
-                menu.getImages().add(menuImage);
             }
             
             // Sauvegarder le menu avec les nouvelles images
@@ -231,11 +234,56 @@ public class MenuControleur {
             
             return ResponseEntity.ok(savedMenu);
             
-        } catch (IOException e) {
-            e.printStackTrace(); // Pour debug
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         } catch (Exception e) {
             e.printStackTrace(); // Pour debug
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @DeleteMapping("/{menuId}/images/{imageId}")
+    @PreAuthorize("hasRole('MANAGER')")
+    public ResponseEntity<Void> supprimerImage(@PathVariable Long menuId, @PathVariable Long imageId) {
+        try {
+            Optional<Menu> menuOpt = menuService.obtenirMenuParId(menuId);
+            if (menuOpt.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            Menu menu = menuOpt.get();
+            
+            // Trouver l'image à supprimer
+            MenuImage imageToDelete = null;
+            if (menu.getImages() != null) {
+                for (MenuImage image : menu.getImages()) {
+                    if (image.getId().equals(imageId)) {
+                        imageToDelete = image;
+                        break;
+                    }
+                }
+            }
+            
+            if (imageToDelete == null) {
+                return ResponseEntity.notFound().build();
+            }
+            
+            // Supprimer l'image de Cloudinary
+            String publicId = cloudinaryService.extractPublicId(imageToDelete.getImageUrl());
+            if (publicId != null) {
+                try {
+                    cloudinaryService.deleteImage(publicId);
+                } catch (IOException e) {
+                    System.err.println("Erreur lors de la suppression de l'image Cloudinary: " + e.getMessage());
+                }
+            }
+            
+            // Supprimer l'image de la base de données
+            menu.getImages().remove(imageToDelete);
+            menuService.enregistrerMenu(menu);
+            
+            return ResponseEntity.noContent().build();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }

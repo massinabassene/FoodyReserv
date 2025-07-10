@@ -2,7 +2,6 @@ package com.foodyback.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
@@ -13,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         // Redirections vers Swagger UI
         registry.addRedirectViewController("/", "/swagger-ui/index.html");
-        registry.addRedirectViewController("", "/swagger-ui/index.html"); // <-- ajouté
+        registry.addRedirectViewController("", "/swagger-ui/index.html");
         registry.addRedirectViewController("/docs", "/swagger-ui/index.html");
     }
 
@@ -27,10 +26,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .maxAge(3600);
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/uploads/menus/**")
-            .addResourceLocations("file:/tmp/uploads/menus/");
-
-    }
+    // Suppression de la configuration des ressources statiques
+    // car nous utilisons maintenant Cloudinary pour les images
+    // Plus besoin de servir des fichiers locaux
 }
