@@ -7,6 +7,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        // Redirection de la racine vers Swagger
+        registry.addRedirectViewController("/", "/swagger-ui/index.html");
+        registry.addRedirectViewController("/docs", "/swagger-ui/index.html");
+    }
     
     @Override
     public void addCorsMappings(CorsRegistry registry) {
