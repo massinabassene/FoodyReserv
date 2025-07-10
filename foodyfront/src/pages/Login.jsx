@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Eye, EyeOff, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {jwtDecode} from 'jwt-decode';
@@ -14,6 +14,15 @@ export default function LoginPage() {
   const [loginMethod, setLoginMethod] = useState('email');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showWelcomePopup, setShowWelcomePopup] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWelcomePopup(true);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -70,12 +79,123 @@ export default function LoginPage() {
     }
   };
 
+  const handleProfileSelect = (profile) => {
+    setLoginMethod('username');
+    if (profile === 'CLIENT') {
+      setIdentifier('client1');
+      setPassword('pass123');
+    } else if (profile === 'MANAGER') {
+      setIdentifier('manager1');
+      setPassword('pass123');
+    } else if (profile === 'LIVREUR') {
+      setIdentifier('livreur1');
+      setPassword('pass123');
+    }
+    setShowWelcomePopup(false);
+  };
+
+  const closeWelcomePopup = () => {
+    setShowWelcomePopup(false);
+  };
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
   return (
     <div className="min-h-screen bg-white flex">
+      {/* Popup d'accueil pour l'évaluateur */}
+      {showWelcomePopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+          <div className="bg-white rounded-lg shadow-2xl p-6 max-w-md w-full mx-4 transform transition-all duration-500 ease-out animate-fadeInScale">
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex items-center">
+                <div className="text-lg font-bold">
+                  <span className="text-green-700">FOODY</span>
+                  <span className="text-orange-500">RESERV</span>
+                </div>
+              </div>
+              <button
+                onClick={closeWelcomePopup}
+                className="text-gray-500 hover:text-gray-700 transition-colors"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            
+            <div className="text-center mb-6">
+              <h2 className="text-xl font-bold text-gray-800 mb-2">
+                Bienvenue Dr TOURE
+              </h2>
+              <p className="text-gray-600 text-sm">
+                Choisissez un profil pour vous connecter automatiquement
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <button
+                onClick={() => handleProfileSelect('CLIENT')}
+                className="w-full p-3 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg transition-colors duration-200"
+              >
+                <div className="text-left">
+                  <div className="font-semibold text-blue-700">CLIENT</div>
+                  <div className="text-xs text-gray-600">
+                    Nom d'utilisateur: client1 • Mot de passe: pass123
+                  </div>
+                </div>
+              </button>
+
+              <button
+                onClick={() => handleProfileSelect('MANAGER')}
+                className="w-full p-3 bg-green-50 hover:bg-green-100 border border-green-200 rounded-lg transition-colors duration-200"
+              >
+                <div className="text-left">
+                  <div className="font-semibold text-green-700">MANAGER</div>
+                  <div className="text-xs text-gray-600">
+                    Nom d'utilisateur: manager1 • Mot de passe: pass123
+                  </div>
+                </div>
+              </button>
+
+              <button
+                onClick={() => handleProfileSelect('LIVREUR')}
+                className="w-full p-3 bg-orange-50 hover:bg-orange-100 border border-orange-200 rounded-lg transition-colors duration-200"
+              >
+                <div className="text-left">
+                  <div className="font-semibold text-orange-700">LIVREUR</div>
+                  <div className="text-xs text-gray-600">
+                    Nom d'utilisateur: livreur1 • Mot de passe: pass123
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <div className="mt-4 text-center">
+              <p className="text-xs text-gray-500">
+                Ou fermez ce popup pour saisir manuellement vos identifiants
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CSS pour l'animation */}
+      <style jsx>{`
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
+        .animate-fadeInScale {
+          animation: fadeInScale 0.5s ease-out;
+        }
+      `}</style>
       <div className="w-1/2 px-8 py-6 flex flex-col items-center justify-center bg-white-50">
         <div className="mb-6">
           <div className="flex items-center text-center">
