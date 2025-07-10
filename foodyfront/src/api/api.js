@@ -15,7 +15,7 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000, // 10 second timeout
+  timeout: 60000, // 10 second timeout
 });
 
 // Interceptor pour ajouter le token Authorization
@@ -210,42 +210,28 @@ export const getFeedbacksByOrder = (commandeId, role) => {
 export const getActiveMenus = () => api.get('/menu');
 export const getMenusByCategory = (categorie) => api.get(`/menu/categorie/${categorie}`);
 
-// Alternative si le problème persiste
-export const createMenu = async (menu, images, role) => {
+export const createMenu = (menu, images, role) => {
   if (role !== 'MANAGER') throw new Error('Accès non autorisé');
   
-  try {
-    // Créer d'abord le menu sans images
-    const menuResponse = await api.post('/menu', menu, {
-      headers: { 
-        'Content-Type': 'application/json' 
-      },
+  const formData = new FormData();
+  
+  // Ajouter les données du menu au format JSON avec le bon Content-Type
+  formData.append('menu', new Blob([JSON.stringify(menu)], {
+    type: 'application/json'
+  }));
+  
+  // Ajouter les images si elles existent
+  if (images && images.length > 0) {
+    images.forEach((image) => {
+      formData.append('images', image);
     });
-    
-    const createdMenu = menuResponse.data;
-    
-    // Ensuite, ajouter les images si elles existent
-    if (images && images.length > 0 && createdMenu.id) {
-      const formData = new FormData();
-      images.forEach((image) => {
-        formData.append('files', image);
-      });
-      
-      const imagesResponse = await api.post(`/menu/${createdMenu.id}/images`, formData, {
-        headers: { 
-          'Content-Type': 'multipart/form-data' 
-        },
-      });
-      
-      return imagesResponse; // Retourne le menu avec les images
-    }
-    
-    return menuResponse; // Retourne le menu sans images
-    
-  } catch (error) {
-    console.error('Erreur lors de la création du menu:', error);
-    throw error;
   }
+  
+  return api.post('/menu', formData, {
+    headers: { 
+      'Content-Type': 'multipart/form-data' 
+    },
+  });
 };
 
 export const updateMenu = (id, menu, role) => {
