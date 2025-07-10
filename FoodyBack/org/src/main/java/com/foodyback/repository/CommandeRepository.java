@@ -26,7 +26,7 @@ public interface CommandeRepository extends JpaRepository<Commande, Long> {
     Long countByStatut(Commande.Statut statut);
     Long countByLivreurIdAndStatut(Long livreurId, Commande.Statut statut);
     
-    // Méthodes de calcul des totaux
+    // Méthodes de calcul des totaux - CORRIGÉES
     @Query("SELECT COALESCE(SUM(c.prixTotal), 0.0) FROM Commande c WHERE c.client.id = :clientId")
     Double calculerTotalCommandesParClient(@Param("clientId") Long clientId);
     
@@ -39,7 +39,7 @@ public interface CommandeRepository extends JpaRepository<Commande, Long> {
     @Query("SELECT COALESCE(SUM(c.prixTotal), 0.0) FROM Commande c WHERE c.statut = :statut")
     Double calculerTotalCommandesParStatut(@Param("statut") Commande.Statut statut);
     
-    // Méthodes de recherche par critères multiples
+    // Méthodes de recherche par critères multiples - CORRIGÉES
     @Query("SELECT c FROM Commande c WHERE c.client.id = :clientId AND c.statut = :statut ORDER BY c.creeLe DESC")
     List<Commande> findByClientIdAndStatut(@Param("clientId") Long clientId, @Param("statut") Commande.Statut statut);
     
@@ -59,40 +59,40 @@ public interface CommandeRepository extends JpaRepository<Commande, Long> {
     @Query("SELECT COUNT(c) FROM Commande c WHERE c.optionLivraison = :optionLivraison")
     Long countByOptionLivraison(@Param("optionLivraison") Commande.OptionLivraison optionLivraison);
     
-    // Méthodes pour les commandes en attente de livraison
+    // Méthodes pour les commandes en attente de livraison - CORRIGÉES
     @Query("SELECT c FROM Commande c WHERE c.statut = 'PRET' AND c.optionLivraison = 'LIVRAISON' AND c.livreur IS NULL ORDER BY c.creeLe ASC")
     List<Commande> findCommandesEnAttenteLivraison();
     
     @Query("SELECT c FROM Commande c WHERE c.statut = 'EN_LIVRAISON' AND c.livreur.id = :livreurId ORDER BY c.creeLe ASC")
     List<Commande> findCommandesEnLivraisonParLivreur(@Param("livreurId") Long livreurId);
     
-    // Méthodes pour les recherches par date
-    @Query("SELECT c FROM Commande c WHERE DATE(c.creeLe) = CURRENT_DATE ORDER BY c.creeLe DESC")
+    // Méthodes pour les recherches par date - SOLUTIONS DE COMPATIBILITÉ
+    @Query("SELECT c FROM Commande c WHERE FUNCTION('DATE', c.creeLe) = CURRENT_DATE ORDER BY c.creeLe DESC")
     List<Commande> findCommandesDuJour();
     
-    @Query("SELECT c FROM Commande c WHERE c.client.id = :clientId AND DATE(c.creeLe) = CURRENT_DATE ORDER BY c.creeLe DESC")
+    @Query("SELECT c FROM Commande c WHERE c.client.id = :clientId AND FUNCTION('DATE', c.creeLe) = CURRENT_DATE ORDER BY c.creeLe DESC")
     List<Commande> findCommandesDuJourParClient(@Param("clientId") Long clientId);
     
-    @Query("SELECT c FROM Commande c WHERE c.livreur.id = :livreurId AND DATE(c.creeLe) = CURRENT_DATE ORDER BY c.creeLe DESC")
+    @Query("SELECT c FROM Commande c WHERE c.livreur.id = :livreurId AND FUNCTION('DATE', c.creeLe) = CURRENT_DATE ORDER BY c.creeLe DESC")
     List<Commande> findCommandesDuJourParLivreur(@Param("livreurId") Long livreurId);
     
-    // Méthodes pour les statistiques par période
-    @Query("SELECT COUNT(c) FROM Commande c WHERE DATE(c.creeLe) = CURRENT_DATE")
+    // Méthodes pour les statistiques par période - SOLUTIONS DE COMPATIBILITÉ
+    @Query("SELECT COUNT(c) FROM Commande c WHERE FUNCTION('DATE', c.creeLe) = CURRENT_DATE")
     Long countCommandesDuJour();
     
-    @Query("SELECT COALESCE(SUM(c.prixTotal), 0.0) FROM Commande c WHERE DATE(c.creeLe) = CURRENT_DATE")
+    @Query("SELECT COALESCE(SUM(c.prixTotal), 0.0) FROM Commande c WHERE FUNCTION('DATE', c.creeLe) = CURRENT_DATE")
     Double calculerChiffreAffairesDuJour();
     
-    @Query("SELECT COUNT(c) FROM Commande c WHERE WEEK(c.creeLe) = WEEK(CURRENT_DATE) AND YEAR(c.creeLe) = YEAR(CURRENT_DATE)")
+    @Query("SELECT COUNT(c) FROM Commande c WHERE FUNCTION('WEEK', c.creeLe) = FUNCTION('WEEK', CURRENT_DATE) AND FUNCTION('YEAR', c.creeLe) = FUNCTION('YEAR', CURRENT_DATE)")
     Long countCommandesDeLaSemaine();
     
-    @Query("SELECT COALESCE(SUM(c.prixTotal), 0.0) FROM Commande c WHERE WEEK(c.creeLe) = WEEK(CURRENT_DATE) AND YEAR(c.creeLe) = YEAR(CURRENT_DATE)")
+    @Query("SELECT COALESCE(SUM(c.prixTotal), 0.0) FROM Commande c WHERE FUNCTION('WEEK', c.creeLe) = FUNCTION('WEEK', CURRENT_DATE) AND FUNCTION('YEAR', c.creeLe) = FUNCTION('YEAR', CURRENT_DATE)")
     Double calculerChiffreAffairesDeLaSemaine();
     
-    @Query("SELECT COUNT(c) FROM Commande c WHERE MONTH(c.creeLe) = MONTH(CURRENT_DATE) AND YEAR(c.creeLe) = YEAR(CURRENT_DATE)")
+    @Query("SELECT COUNT(c) FROM Commande c WHERE FUNCTION('MONTH', c.creeLe) = FUNCTION('MONTH', CURRENT_DATE) AND FUNCTION('YEAR', c.creeLe) = FUNCTION('YEAR', CURRENT_DATE)")
     Long countCommandesDuMois();
     
-    @Query("SELECT COALESCE(SUM(c.prixTotal), 0.0) FROM Commande c WHERE MONTH(c.creeLe) = MONTH(CURRENT_DATE) AND YEAR(c.creeLe) = YEAR(CURRENT_DATE)")
+    @Query("SELECT COALESCE(SUM(c.prixTotal), 0.0) FROM Commande c WHERE FUNCTION('MONTH', c.creeLe) = FUNCTION('MONTH', CURRENT_DATE) AND FUNCTION('YEAR', c.creeLe) = FUNCTION('YEAR', CURRENT_DATE)")
     Double calculerChiffreAffairesDuMois();
     
     // Méthodes pour la validation et la sécurité
