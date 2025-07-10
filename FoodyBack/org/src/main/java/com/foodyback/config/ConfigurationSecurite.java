@@ -48,7 +48,10 @@ public class ConfigurationSecurite {
                             "/api-docs/**",
                             "/swagger-resources/**",
                             "/webjars/**",
-                            "/uploads/menus/**"
+                            "/uploads/menus/**",
+                            "/actuator/**",        // <- AJOUTÉ
+                            "/actuator/health",    // <- AJOUTÉ
+                            "/actuator/info"       // <- AJOUTÉ
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
@@ -61,7 +64,7 @@ public class ConfigurationSecurite {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+        configuration.setAllowedOrigins(Arrays.asList("https://foodyreserv.up.railway.app"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
@@ -69,6 +72,9 @@ public class ConfigurationSecurite {
         
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/api/**", configuration);
+        // Ajout pour les endpoints actuator et api-docs
+        source.registerCorsConfiguration("/actuator/**", configuration);
+        source.registerCorsConfiguration("/api-docs/**", configuration);
         return source;
     }
 
