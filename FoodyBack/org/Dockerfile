@@ -28,4 +28,5 @@ COPY --from=builder /app/build/libs/foodyback.jar app.jar
 EXPOSE 8080
 
 # Démarrer l'application
-ENTRYPOINT ["java", "-Xmx512m", "-Xms256m", "-XX:MaxMetaspaceSize=128m", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Xmx512m", "-Xms256m", "-XX:MaxMetaspaceSize=128m", "-XX:+UseSerialGC", "-jar", "app.jar"]
+
