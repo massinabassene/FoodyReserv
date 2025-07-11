@@ -58,7 +58,7 @@ export default function LoginPage() {
       };
 
       localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('role', JSON.stringify(role));
+      localStorage.setItem('role', role);
       console.log(decodedToken);
       console.log(user);
       
