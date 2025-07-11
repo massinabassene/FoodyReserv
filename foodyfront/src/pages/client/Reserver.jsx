@@ -52,19 +52,20 @@ const Reserver = () => {
     fetchData();
   }, [navigate]);
 
-  const handleSubmitReservation = async () => {
-    try {
-      if (reservation.tailleGroupe < 1) {
-        setError('Veuillez spécifier un nombre de personnes valide');
-        return;
-      }
-
-      await createReservation(reservation, 'CLIENT');
-      navigate('/client/reservations');
-    } catch (err) {
-      setError(err.response?.data?.message || 'Erreur lors de la réservation');
+ const handleSubmitReservation = async () => {
+  try {
+    if (reservation.tailleGroupe < 1) {
+      setError('Veuillez spécifier un nombre de personnes valide');
+      return;
     }
-  };
+
+    await createReservation(reservation, 'CLIENT');
+    navigate('/client'); // Corrected to navigate to dashboard
+  } catch (err) {
+    setError(err.response?.data?.message || 'Erreur lors de la réservation');
+  }
+};
+
 
   const handleCancelReservation = async (reservationId) => {
     try {
