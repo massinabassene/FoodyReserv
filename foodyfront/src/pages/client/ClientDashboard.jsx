@@ -37,7 +37,7 @@ const ClientDashboard = () => {
           return;
         }
 
-        if (role !== "CLIENT") {
+        if (userString.role !== "CLIENT") {
           console.log('Rôle incorrect:', role);
           navigate('/login');
           return;
