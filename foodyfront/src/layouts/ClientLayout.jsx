@@ -8,8 +8,8 @@ export default function ClientLayout() {
   return (
     <Routes>
       <Route index element={<ClientDashboard />} />
-      <Route path="commander" element={<Commander />} />
-      <Route path="reserver" element={<Reserver />} />
+      <Route path="commandes" element={<Commander />} />
+      <Route path="reservations" element={<Reserver />} />
       <Route path="profile" element={<Profile />} />
       <Route path="*" element={<Navigate to="/client" replace />} />
     </Routes>
