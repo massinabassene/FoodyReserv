@@ -36,9 +36,10 @@ const ClientDashboard = () => {
           navigate('/login');
           return;
         }
-
-        if (userString.role !== "CLIENT") {
-          console.log('Rôle incorrect:', role);
+        // Vérification robuste du rôle
+        const cleanRole = role?.trim()?.toUpperCase();
+        if (!cleanRole || cleanRole !== 'CLIENT') {
+          console.log('Rôle incorrect. Reçu:', JSON.stringify(role), 'Nettoyé:', cleanRole);
           navigate('/login');
           return;
         }
