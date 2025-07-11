@@ -141,13 +141,13 @@ const Commander = () => {
               </button>
             </li>
             <li className={`px-4 py-3 ${activeSection === 'commandes' ? 'bg-yellow-50 border-l-4 border-yellow-500' : 'border-l-4 border-transparent hover:bg-yellow-50 hover:border-yellow-500'} cursor-pointer transition-all duration-300`}>
-              <button onClick={() => setActiveSection('commandes')} className="flex items-center text-gray-700 w-full text-left">
+              <button onClick={() => navigate('/client/commandes')} className="flex items-center text-gray-700 w-full text-left">
                 <ShoppingBag size={20} className="mr-3" />
                 <span>Mes Commandes</span>
               </button>
             </li>
             <li className={`px-4 py-3 ${activeSection === 'reservations' ? 'bg-yellow-50 border-l-4 border-yellow-500' : 'border-l-4 border-transparent hover:bg-yellow-50 hover:border-yellow-500'} cursor-pointer transition-all duration-300`}>
-              <button onClick={() => navigate('/client/reservation')} className="flex items-center text-gray-700 w-full text-left">
+              <button onClick={() => navigate('/client/reservations')} className="flex items-center text-gray-700 w-full text-left">
                 <Calendar size={20} className="mr-3" />
                 <span>Mes Réservations</span>
               </button>
