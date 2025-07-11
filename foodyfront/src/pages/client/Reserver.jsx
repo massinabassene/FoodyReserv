@@ -241,7 +241,7 @@ const Reserver = () => {
                       <div>
                         <p className="text-sm text-gray-500">Nombre de personnes</p>
                         <p className="font-medium">
-                          {reservation.nombrePersonnes} {reservation.nombrePersonnes > 1 ? 'personnes' : 'personne'}
+                          {reservation.tailleGroupe} {reservation.tailleGroupe > 1 ? 'personnes' : 'personne'}
                         </p>
                       </div>
                       {reservation.demandesSpeciales && (
