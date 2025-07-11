@@ -8,7 +8,7 @@ const Reserver = () => {
   const [reservation, setReservation] = useState({
     clientId: 0,
     date: '2025-07-11',
-    heure: { hour: 12, minute: 0, second: 0, nano: 0 },
+    heure: '12:00',
     tailleGroupe: 1
   });
   const [reservations, setReservations] = useState([]);
@@ -17,6 +17,10 @@ const Reserver = () => {
   const [userId, setUserId] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [activeSection, setActiveSection] = useState('reservations');
+
+  const handleTimeChange = (e) => {
+    setReservation({ ...reservation, heure: e.target.value });
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -181,14 +185,8 @@ const Reserver = () => {
               <label className="block text-sm font-medium text-gray-700">Heure</label>
               <input
                 type="time"
-                value={`${reservation.heure.hour.toString().padStart(2, '0')}:${reservation.heure.minute.toString().padStart(2, '0')}`}
-                onChange={(e) => {
-                  const [hour, minute] = e.target.value.split(':').map(Number);
-                  setReservation({
-                    ...reservation,
-                    heure: { ...reservation.heure, hour, minute }
-                  });
-                }}
+                value={reservation.heure}
+                onChange={handleTimeChange}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
               />
             </div>
